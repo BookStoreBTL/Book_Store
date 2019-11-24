@@ -1,0 +1,48 @@
+
+h1 {
+    font-size: 1.2rem;
+    line-height: 1.2;
+}
+h2 {
+    font-size: 1.125rem !important; 
+}
+   
+h1.title {
+    color: black;
+    font-family: 'Prata';
+    font-weight: 500;
+    margin: 1rem 0;
+    font-size: 25px;
+}
+.staticBlock ul {
+    padding-left: 1.2rem;
+}
+ul {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+.btn-primary {
+    background-color: #642a35 !important;
+    border-color: #642a35 !important;
+    border-radius: 0 !important;
+}
+.form-group {
+    margin-bottom: 2rem;
+}
+.box {
+    background-color: #f0f1ee;
+    padding: 1rem;
+}
+.mb-3 {
+    margin-bottom: 1rem !important;
+}
+.staticBlock {
+    font-size: 0.875rem !important;
+}
+.staticBlock ul {
+    padding-left: 1.2rem;
+}
+ul {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}

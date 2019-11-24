@@ -1,0 +1,128 @@
+a{
+    color: #333;
+    text-decoration: none;
+}
+a:hover{
+    color: #76323f;
+    text-decoration: none;
+}
+.table{
+    font-family: 'Gothic A1';
+}
+.table tr th{
+    text-transform: uppercase;
+}
+table td{
+    line-height: 70px;
+}
+.product-remove{
+    width: 2.5%;
+}
+.product-remove .remove{
+    opacity: 0;
+    transition: all .3s cubic-bezier(.175,.885,.32,1.075);
+    font-size: 20px;
+}
+.active{
+    opacity: 1!important;
+}
+.product-image{
+    width: 10%;
+}
+.product-image img{
+    box-shadow: 0 10px 20px -6px rgba(0, 0, 0, 0.5);
+    width: 50px;
+    height: auto;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+.product-name{
+    width: 45%;
+    font-size: 22px;
+    font-family: 'Prata';
+    text-transform: capitalize;
+}
+.product-price{
+    color: #898989;
+    font-size: 20px;
+}
+.product-total{
+    color: #76323f;
+    font-size: 20px;
+}
+.product-quantity{
+    width: 15%;
+    height: 40px;
+}
+.quantity{
+    width: 90px;
+    height: 45%;
+}
+.product-quantity input{
+    background-color: #f3f0ef;
+    border: 0;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    height: 100%;
+    font-size: 15px;
+    text-indent: 10px;
+}
+input:focus {
+    outline: none;
+}
+.coupon input{
+    border: 1px solid #eee;
+    background-color: #fff;
+    box-shadow: none;
+    padding: 6px 12px;
+    outline: 0;
+    border-radius: 0;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+button{
+    background-color: #76323f;
+    color: #fff;
+    padding: 7px 30px;
+    border: 0;
+    font-size: 15px;
+}
+button:hover{
+    background: #642a35;
+}
+.cart-collateral{
+    float: right;
+    width: 400px;
+}
+.cart-collateral table{
+    width: 100%;
+}
+
+.cart-collateral tr{
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+}
+.cart-collateral th{
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #222;
+    font-weight: 400;
+}
+.cart-collateral td{
+    text-align: right;
+    color: #333;
+}
+.cart-collateral p{
+    height: auto;
+    vertical-align: middle;
+    line-height: 35px;
+}
+.cart-collateral button{
+    width: 100%;
+    margin: 20px 0;
+}
+.update-address{
+    float: left;
+    width: 400px;
+}

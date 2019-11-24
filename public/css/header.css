@@ -1,0 +1,180 @@
+* {
+    box-sizing: border-box;
+}
+
+.navbar li:hover{
+    color: #76323f;
+    text-decoration: none;
+}
+
+.navbar {
+    position: fixed!important;
+    z-index: 10;
+    width: 100%;
+    height: 60px;
+    margin: 0;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+}
+.main-header.sticky-absolute {
+    position: absolute;
+}
+.navbar.main-header {
+    pointer-events: none;
+    z-index: 100000;
+    user-select: none;
+    backface-visibility: hidden;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+/* header {
+    display: inline-block;
+} */
+.navbar {
+    font-size: 16px;
+    font-family: 'Gothic A1';
+    font-weight: 400;
+    color: #333;
+    line-height: 1.333333333;
+}
+.logo-and-menu-container {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    align-items: center;
+    padding-top: 5px;
+}
+.menu-column {
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    width: 70%;
+}
+.standard-menu-container {
+    text-align: right;
+
+}
+.menu-items-blocks {
+    display: flex;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+}
+.logo-column {
+    width: 30%;
+    height: 55px;
+}
+.header-logo .logo-image {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    width: 200px;
+    height: 47px;
+}
+.main-header a {
+    pointer-events: auto;
+}
+.header-logo {
+    font-size: 32px;
+}
+a {
+    color: #76323f;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+nav {
+    display: block;
+    align-self: center;
+}
+ul.menu {
+    pointer-events: auto;
+}
+.standard-menu-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+ul.menu li {
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+ul.menu>li {
+    display: inline-block;
+}
+li a{
+    color: #76323f;
+}
+li>a{
+    font-size: 20px;
+    font-family: 'Prata';
+    font-weight: 400;
+    text-decoration: none;
+    display: inline-block;
+}
+ul.menu>li+li {
+    margin-left: 25px;
+}
+
+.navbar {
+    position: fixed !important;
+    z-index: 10;
+    width: 100%;
+    height: 70px;
+}
+
+.number-shopping {
+    position: relative;
+    top: -11px;
+    left: -11px;
+    z-index: 5;
+    border-radius: 0.1px soloid black;
+    border: 0.4px solid #fff;
+    border-radius: 10px;
+    padding: 1px 8px;
+    background-color: #76323f;
+    color: #fff;
+}
+
+.btn-outline-primary {
+    border-color: #76323f;
+    color: #76323f;
+}
+
+.btn-outline-primary:hover {
+    color: #fff;
+    background-color: #76323f;
+    border-color: #76323f;
+}
+
+.fa {
+    font-size: 25px;
+}
+
+header li.text-menu a {
+    font-size: 25px;
+    line-height: 70px;
+    color: #000;
+}
+
+header .username {
+    font-size: 17px;
+}
+
+header li.text-menu a:hover {
+    color: #76323f;
+}
+
+.first-content{
+    padding-top: 100px;
+}
+
+
+
+
+
+

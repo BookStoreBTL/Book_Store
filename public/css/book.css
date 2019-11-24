@@ -1,0 +1,107 @@
+.book-item .search{
+    background-color: #f3f0ef;
+    border: 5px solid #FFF;
+    box-shadow: 0 0 0 1px #c3c3c3;
+}
+.search .search-bar{
+    width: 100%;
+    clear: both;
+    position: relative;
+    display: flex;
+}
+.search input{
+    background-color: #F3F0F1;
+    font-family: sans-serif;
+    color: #555;
+    height: 35px;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    width: 100%;
+    padding: 7px;
+}
+input:focus, button:focus{
+    outline: none;
+}
+.search button{
+    border: 0;
+    background-color: #F3F0F1;
+}
+.search i{
+    font-size: 18px;
+}
+.filter{
+    margin: 15px 0px;
+    background-color: #f3f0ef;
+    border: 5px solid #FFF;
+    box-shadow: 0 0 0 1px #c3c3c3;
+}
+.filter .card-header{
+    background-color: #F3F0F1;
+    padding: 0px 0px;
+    border-bottom: 0.5px solid #c3c3c3;
+    margin-bottom: 0px!important;
+}
+.filter i{
+    font-size: 13px;
+    font-weight: lighter;
+    position: absolute;
+    right: 15px;
+    top: 19px;
+    opacity: 0;
+}
+.filter .card-header:hover i{
+    opacity: 1;
+}
+.filter .card{
+    margin-bottom: 0;
+    border: 0;
+}
+ul{
+    padding: 0px;
+}
+li{
+    list-style: none;
+    text-align: left;
+    padding: 7px 0;
+}
+.btn-link {
+    color: #333;
+    font-size: 24px;
+    text-decoration: none;
+}
+.btn-link:hover{
+    color: #76323f;
+    text-decoration: none;
+}
+.collapse{
+    text-decoration: none;
+}
+.filter li a{
+  font-size: 17px;
+}
+.book-item .card-img-top{
+    height: 90%;
+}
+.mb-0 button{
+    text-decoration: none;
+}
+.sort{
+    background-color: #f3f0ef;
+    border: 5px solid #FFF;
+    box-shadow: 0 0 0 1px #c3c3c3;
+    margin-right: 15px;
+}
+.sort .dropdown-menu{
+    background-color: #f3f0ef;
+    border: 5px solid #FFF;
+    box-shadow: 0 0 0 1px #c3c3c3;
+    top: 7px!important;
+}
+.pagination a{
+    color: #333!important;
+}
+.pagination{
+    width: 160px;
+    margin: 0 auto;
+}
