@@ -1,5 +1,5 @@
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light header">
         <div class="container">
             <div class="logo-column">
                 <a href="{{route('home')}}" class="navbar-brand">

@@ -80,17 +80,17 @@
 .header-logo {
     font-size: 32px;
 }
-a {
+.header a {
     color: #76323f;
     text-decoration: none;
     background-color: transparent;
 }
 
-nav {
+.header nav {
     display: block;
     align-self: center;
 }
-ul.menu {
+.header ul.menu {
     pointer-events: auto;
 }
 .standard-menu-container ul {
@@ -98,25 +98,25 @@ ul.menu {
     padding: 0;
     margin: 0;
 }
-ul.menu li {
+.header ul.menu li {
     position: relative;
     padding: 0;
     margin: 0;
 }
-ul.menu>li {
+.header ul.menu>li {
     display: inline-block;
 }
-li a{
+.header li a{
     color: #76323f;
 }
-li>a{
+.header li>a{
     font-size: 20px;
     font-family: 'Prata';
     font-weight: 400;
     text-decoration: none;
     display: inline-block;
 }
-ul.menu>li+li {
+.header ul.menu>li+li {
     margin-left: 25px;
 }
 
@@ -155,17 +155,17 @@ ul.menu>li+li {
     font-size: 25px;
 }
 
-header li.text-menu a {
+.header li.text-menu a {
     font-size: 25px;
     line-height: 70px;
     color: #000;
 }
 
-header .username {
+.header .username {
     font-size: 17px;
 }
 
-header li.text-menu a:hover {
+.header li.text-menu a:hover {
     color: #76323f;
 }
 

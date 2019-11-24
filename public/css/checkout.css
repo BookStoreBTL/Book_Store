@@ -141,7 +141,7 @@ form.woocommerce-checkout {
     font-weight: 400;
 }
 
-p {
+.woocommerce p {
     font-size: 16px;
     font-family: 'Gothic A1';
     font-weight: 400;
@@ -157,7 +157,8 @@ p {
 .woocommerce .input-text {
     width: 100%;
 }
-input[type=text] {
+
+.woocommerce input[type=text] {
     color: #333;
     border: 1px solid #eee;
     background-color: #fff;
@@ -196,7 +197,7 @@ input[type=text] {
     margin-top: 10px;
     margin-bottom: 10px;
 }
-label {
+.woocommerce label {
     max-width: 100%;
 }
 
@@ -204,11 +205,11 @@ label {
     position: relative;
     margin-left: 0;
 }
-input[type=checkbox]:focus {
+.woocommerce input[type=checkbox]:focus {
     outline: 0;
     outline-offset: -2px;
 }
-input[type=checkbox] {
+.woocommerce input[type=checkbox] {
     box-shadow: inset 1px 1px 0px rgba(0, 0, 0, 0.1);
     background: #f3f0ef;
     border: none;
@@ -226,7 +227,7 @@ input[type=checkbox] {
     outline: 0;
     content: '';
 }
-:focus {
+.woocommerce :focus {
     color: #76323f;
 }
 .woocommerce #ship-to-different-address {
@@ -235,7 +236,7 @@ input[type=checkbox] {
 .woocommerce .col2-set .woocommerce-shipping-fields h3 {
     margin-top: 0;
 }
-h3 {
+.woocommerce h3 {
     font-family: 'Prata';
     font-weight: 400;
     font-size: 26px;
@@ -254,7 +255,7 @@ h3 {
 .woocommerce label {
     font-weight: 400;
 }
-label {
+.woocommerce label {
     display: inline-block;
     max-width: 100%;
     margin-bottom: 5px;
@@ -265,7 +266,7 @@ label {
 .woocommerce .input-text {
     width: 100%;
 }
-textarea {
+.woocommerce textarea {
     background: 0 0;
     resize: vertical;
     color: #333;
@@ -303,7 +304,7 @@ form.woocommerce-checkout .order-review-container {
 .woocommerce .shop_table {
     width: 100%;
 }
-table {
+.woocommerce table {
     color: #555;
     background-color: transparent;
     border-collapse: collapse;
@@ -320,7 +321,7 @@ table {
     color: #222;
     padding: 10px 0;
 }
-th {
+.woocommerce th {
     text-align: left;
 }
 .woocommerce .woocommerce-checkout-review-order .shop_table tr>:last-child {
@@ -354,7 +355,7 @@ th {
     margin-bottom: 0;
     text-align: right;
 }
-ul {
+.woocommerce ul {
     margin-top: 0;
 }
 .shop_table .shipping  ul li {
@@ -378,7 +379,7 @@ form.woocommerce-checkout .order-review-container h2 {
     border-bottom: 1px solid #eee;
     margin-bottom: 20px;
 }
-h2 {
+.woocommerce h2 {
     font-family: 'Prata';
     font-weight: 400;
     line-height: 1.1;
@@ -394,11 +395,11 @@ h2 {
 .woocommerce li {
     list-style: none !important;
 }
-input[type=radio][type=radio] {
+.woocommerce input[type=radio][type=radio] {
     border-radius: 50%;
    
 }
-input[type=radio] {
+.woocommerce input[type=radio] {
     /* box-shadow: inset 1px 1px 0px rgba(0,0,0,0.1); */
     background: #f3f0ef;
     border: none;
@@ -417,10 +418,10 @@ input[type=radio] {
     outline: 0;
     padding: 0;
 }
-input[type=radio]+label[for] {
+.woocommerce input[type=radio]+label[for] {
     cursor: pointer;
 }
-label {
+.woocommerce label {
     display: inline-block;
     max-width: 100%;
     margin-bottom: 5px;
@@ -441,7 +442,7 @@ label {
     max-width: 200px;
     display: block;
 }
-img {
+.woocommerce img {
     vertical-align: middle;
     border: 0;
 }
@@ -454,7 +455,7 @@ img {
 .wrapper a {
     position: relative;
 }
-a {
+.woocommerce a {
     color: #76323f;
     text-decoration: none;
     background-color: transparent;
@@ -462,7 +463,7 @@ a {
 .woocommerce-checkout-payment .payment_box p {
     margin-bottom: 0;
 }
-input[type=radio] {
+.woocommerce input[type=radio] {
     box-sizing: border-box;
     padding: 0;
 }
@@ -478,11 +479,11 @@ input[type=radio] {
     font-family: 'Gothic A1';
     font-weight: 500;
 }
-.button {
+.woocommerce .button {
     background-color: #76323f !important;
     color: #fff;
 }
-.button {
+.woocommerce .button {
     background: #00b19e;
     border: 0;
     line-height: 1;
@@ -560,6 +561,6 @@ input[type=radio] {
     top: 50%;
     width: 0;
 }
-b {
+.woocommerce b {
     font-weight: 700;
 }

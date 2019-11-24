@@ -1,48 +1,48 @@
 
-h1 {
+.login, .register h1 {
     font-size: 1.2rem;
     line-height: 1.2;
 }
-h2 {
+.login, .register h2 {
     font-size: 1.125rem !important; 
 }
    
-h1.title {
+.login, .register h1.title {
     color: black;
     font-family: 'Prata';
     font-weight: 500;
     margin: 1rem 0;
     font-size: 25px;
 }
-.staticBlock ul {
+.login, .register .staticBlock ul {
     padding-left: 1.2rem;
 }
-ul {
+.login, .register ul {
     margin-top: 0;
     margin-bottom: 1rem;
 }
-.btn-primary {
+.login, .register .btn-primary {
     background-color: #642a35 !important;
     border-color: #642a35 !important;
     border-radius: 0 !important;
 }
-.form-group {
+.login, .register .form-group {
     margin-bottom: 2rem;
 }
-.box {
+.login, .register .box {
     background-color: #f0f1ee;
     padding: 1rem;
 }
-.mb-3 {
+.login, .register .mb-3 {
     margin-bottom: 1rem !important;
 }
-.staticBlock {
+.login, .register .staticBlock {
     font-size: 0.875rem !important;
 }
-.staticBlock ul {
+.login, .register .staticBlock ul {
     padding-left: 1.2rem;
 }
-ul {
+.login, .register ul {
     margin-top: 0;
     margin-bottom: 1rem;
 }
