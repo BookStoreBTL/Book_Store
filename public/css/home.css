@@ -47,21 +47,30 @@ body{
 .book-section, .author-month, .feedback{
     margin-bottom: 25px;
 }
-a{
+.book-section a{
     text-decoration: none;
     color: #333;
 }
-a:hover{
+.book-section  a:hover{
     text-decoration: none;
     color: #76323f;
 }
-.list-group-item {
+
+.author-month a{
+    text-decoration: none;
+    color: #333;
+}
+.author-month  a:hover{
+    text-decoration: none;
+    color: #76323f;
+}
+/* .list-group-item {
     padding: 7px 7px;
     background-color: #f3f0ef;
 }
 .lgi-active{
     background-color: #d6d0ce;
-}
+} */
 
 .card-body{
     padding: 10px;
@@ -190,4 +199,24 @@ img.per-item{
 }
 .carousel-control-prev{
     color: #555;
+}
+
+.book-section .list-group{
+    flex-direction: row;
+    width: 150%;
+}
+.book-section .list-group-item {
+    background-color: #f3f0ef;
+    font-size: 20px;
+    color: #898989;
+    border: 0.5px solid #b1acad;
+    padding: 5px
+}
+
+.book-section .list-group-item:hover{
+    color: #76323f;
+}
+.book-section a.active{
+    color: #76323f;
+    background-color: #d6d0ce;
 }

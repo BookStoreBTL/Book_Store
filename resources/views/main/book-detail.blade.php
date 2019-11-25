@@ -35,14 +35,14 @@
 				</div>
 				<div style="display: flex">
 					<input class="quantity" type="number" step="1" min="0" value="1" size="4" inputmode="numeric">
-					<button class="button">Add to cart</button>
+					<button class="button" type="submit">Add to cart</button>
 				</div>
 			</div>
 		</div>
 	</div>
 
 	<div class="row">
-		<div class="col-lg-12">
+		<div class="col-lg-12" style="padding-left: 0">
 			<div class="list-group" id="myList" role="tablist">
 				<a class="list-group-item list-group-item-action active" data-toggle="list" href="#book-details" role="tab">Book Details</a>
 				<a class="list-group-item list-group-item-action" data-toggle="list" href="#reviews" role="tab">Reviews</a>

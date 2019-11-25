@@ -1,15 +1,15 @@
-.book-item .search{
+.book-section .book-item .search{
     background-color: #f3f0ef;
     border: 5px solid #FFF;
     box-shadow: 0 0 0 1px #c3c3c3;
 }
-.search .search-bar{
+.book-section .search .search-bar{
     width: 100%;
     clear: both;
     position: relative;
     display: flex;
 }
-.search input{
+.book-section .search input{
     background-color: #F3F0F1;
     font-family: sans-serif;
     color: #555;
@@ -20,29 +20,31 @@
     width: 100%;
     padding: 7px;
 }
-input:focus, button:focus{
+ input:focus, button:focus{
     outline: none;
 }
-.search button{
+.book-section .search button{
     border: 0;
     background-color: #F3F0F1;
+    color: black;
+    padding: 7px;
 }
-.search i{
+.book-section .search i{
     font-size: 18px;
 }
-.filter{
+.book-section .filter{
     margin: 15px 0px;
     background-color: #f3f0ef;
     border: 5px solid #FFF;
     box-shadow: 0 0 0 1px #c3c3c3;
 }
-.filter .card-header{
+.book-section .filter .card-header{
     background-color: #F3F0F1;
     padding: 0px 0px;
     border-bottom: 0.5px solid #c3c3c3;
     margin-bottom: 0px!important;
 }
-.filter i{
+.book-section .filter i{
     font-size: 13px;
     font-weight: lighter;
     position: absolute;
@@ -50,58 +52,62 @@ input:focus, button:focus{
     top: 19px;
     opacity: 0;
 }
-.filter .card-header:hover i{
+.book-section .filter .card-header:hover i{
     opacity: 1;
 }
-.filter .card{
+.book-section .filter .card{
     margin-bottom: 0;
     border: 0;
 }
-ul{
+.book-section ul{
     padding: 0px;
 }
-li{
+.book-section li{
     list-style: none;
     text-align: left;
     padding: 7px 0;
 }
-.btn-link {
+.book-section .btn-link {
     color: #333;
     font-size: 24px;
     text-decoration: none;
 }
-.btn-link:hover{
+.book-section .btn-link:hover{
     color: #76323f;
     text-decoration: none;
 }
-.collapse{
+.book-section .collapse{
     text-decoration: none;
 }
-.filter li a{
+.book-section .filter li a{
   font-size: 17px;
 }
-.book-item .card-img-top{
+.book-section .book-item .card-img-top{
     height: 90%;
 }
-.mb-0 button{
+.book-section .mb-0 button{
     text-decoration: none;
 }
-.sort{
+.book-section .sort{
     background-color: #f3f0ef;
     border: 5px solid #FFF;
     box-shadow: 0 0 0 1px #c3c3c3;
     margin-right: 15px;
 }
-.sort .dropdown-menu{
+.book-section .sort .dropdown-menu{
     background-color: #f3f0ef;
     border: 5px solid #FFF;
     box-shadow: 0 0 0 1px #c3c3c3;
     top: 7px!important;
 }
-.pagination a{
+.book-section .pagination a{
     color: #333!important;
 }
-.pagination{
+.book-section .pagination{
     width: 160px;
     margin: 0 auto;
+}
+
+.dropdown-toggle:hover{
+    background-color: #f3f0ef;
 }

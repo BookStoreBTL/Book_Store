@@ -1,6 +1,6 @@
 @extends('main.layout.index')
 @section('content')
-<div class="container first-content">
+<div class="container first-content cart-section">
   <form action="cart" method="POST">
     <input type="hidden" name="_token" value="{{csrf_token()}}">
     <table class="table">

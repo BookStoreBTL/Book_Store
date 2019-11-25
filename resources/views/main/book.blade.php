@@ -12,8 +12,6 @@
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="#">Sort by price</a>
-                    <a class="dropdown-item" href="#">Sort by rating</a>
-                    <a class="dropdown-item" href="#">Sort by popularity</a>
                     <a class="dropdown-item" href="#">Default sorting</a>
                 </div>
             </div>
@@ -171,6 +169,32 @@
                                     <li>
                                         <a href="">
                                             Vietnamese
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingThree">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Publisher
+                                    <i class="fa fa-chevron-down"></i>
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                            <div class="card-body">
+                                <ul>
+                                    <li>
+                                        <a href="">
+                                            Nhà xuất bản trẻ
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            Nhà xuất bản Kim Đồng
                                         </a>
                                     </li>
                                 </ul>

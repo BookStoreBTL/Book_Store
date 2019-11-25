@@ -172,6 +172,9 @@
 .first-content{
     padding-top: 100px;
 }
+.btn:focus{
+    outline: 0;
+}
 
 
 
