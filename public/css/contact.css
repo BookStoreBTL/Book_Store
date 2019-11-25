@@ -1,0 +1,29 @@
+
+.contact-section .conact-title {
+    margin-bottom: 30px;
+}
+.contact-section .title {
+    font-size: 50px;
+}
+.contact-section .note {
+    font-size: 17px;
+}
+.contact-section .contact-address.row {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.contact-section input, textarea{
+    background-color: #f3f0ef;
+    padding: 10px;
+    border: 1px solid #e3dcdc;
+    width: 100%;
+    margin-bottom: 7px;
+}
+.contact-section input, textarea:focus{
+    outline: 0;
+}
+.contact-section .button{
+    float: right;
+    margin-bottom: 20px;
+}

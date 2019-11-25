@@ -18,6 +18,9 @@
                                     <li class="menu-item text-menu">
                                         <a href="{{route('book')}}" ><span>Books</span></a>
                                     </li>
+                                    <li class="menu-item text-menu">
+                                        <a href="{{route('contact')}}" ><span>Contact</span></a>
+                                    </li>
                                     <li class="menu-item">
                                         <a href="{{route('cart')}}" >
                                             <i class="fa fa-shopping-bag"></i>

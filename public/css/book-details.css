@@ -62,35 +62,93 @@
 
 .singel-product-details .list-group{
     flex-direction: row;
-    width: 45%;
+    width: 35%;
 }
 .singel-product-details .list-group-item {
     background-color: #fff;
     border: none;
-    font-size: 27px;
+    font-size: 30px;
     color: #898989;
 }
 
 .singel-product-details .list-group-item:hover{
-    color: #76323f;
+    color: #000;
 }
 .singel-product-details a.active{
-    color: #76323f;
+    color: #000;
 }
 
-.singel-product-details table{
-    width: 50%;
-    margin-left: 7px;
-}
-.singel-product-details tr{
-    border-bottom: 1px solid #eee;
-    width: 100%;
-    font-size: 18px;
-}
-.singel-product-details td{
-    color: #76323f;
+.singel-product-details .table-row {
     font-size: 20px;
+    margin: 20px 7px;
+    border-bottom: 1px solid #eee;
 }
 
+.singel-product-details span.content{
+    color: #76323f;
+}
 
+.singel-product-details span.title{
+    display: inline-block;
+    width: 25%;
+    padding: 7px 0px;
+}
 
+.cmt-list-item{
+    border-bottom: 1px solid #f3f0ef;
+    margin-left: 7px;
+    padding-bottom: 30px;
+    padding-top: 10px;
+}
+
+.cmt-item{
+    display: flex;
+}
+
+.cmt-list-item img{
+    border-radius: 50%;
+    background-clip: padding-box;
+}
+
+.cmt-item-img {
+    width: 12%;
+}
+
+.cmt-username {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.cmt-time {
+    color: #888;
+}
+
+.cmt-text {
+    font-size: 19px;
+    color: #555;
+    margin-top: 7px;
+}
+.review-title{
+    font-size: 30px;
+}
+.text-note{
+    font-size: 17px;
+    color: #888;
+}
+.review-text{
+    padding-top: 30px;
+}
+.review-text textarea{
+    background-color: #f3f0ef;
+    padding: 10px;
+}
+.review-text textarea:focus{
+    outline: 0;
+}
+.review .button{
+    float: right;
+}
+.slq-title {
+    margin: 17px;
+    font-size: 30px;
+}

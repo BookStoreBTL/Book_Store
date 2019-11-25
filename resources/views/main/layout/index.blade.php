@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="{{asset('css/login-register.css')}}">
     <link rel="stylesheet" href="{{asset('css/search-result.css')}}">
 
+    @yield('css')
 </head>
 
 <header>

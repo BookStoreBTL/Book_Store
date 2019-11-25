@@ -53,6 +53,10 @@ Route::get('search-result', function () {
     return view('main.search-result');
 })->name('search-result');
 
+Route::get('contact', function(){
+    return view('main.contact');
+})->name('contact');
+
 Route::get('getBook', 'BookController@getBook');
 
 /**
