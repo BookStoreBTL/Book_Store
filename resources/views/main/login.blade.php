@@ -1,9 +1,4 @@
 @extends('main.layout.index')
-
-@section('css')
-<link rel="stylesheet" href="{{asset('css/login-register.css')}}">
-@endsection
-
 @section('content')
 <div class="container  first-content">
             <div class="login">

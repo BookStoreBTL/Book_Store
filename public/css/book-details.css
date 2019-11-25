@@ -62,7 +62,7 @@
 
 .singel-product-details .list-group{
     flex-direction: row;
-    width: 40%;
+    width: 35%;
 }
 .singel-product-details .list-group-item {
     background-color: #fff;
@@ -146,21 +146,9 @@
     outline: 0;
 }
 .review .button{
-    float: right;
+    margin-left: 90%;
 }
 .slq-title {
     margin: 17px;
     font-size: 30px;
-}
-ul.cmt-list {
-    list-style: none;
-}
-
-.singel-product-details a{
-    text-decoration: none;
-    color: #333;
-}
-.singel-product-details a:hover{
-    text-decoration: none;
-    color: #76323f;
 }

@@ -8,7 +8,7 @@ class Author extends Model
 {
     protected $table = 'author';
 
-    public function author(){
-        return $this->hasMany('App\Author', 'author_id', 'id');
+    public function book(){
+        return $this->hasMany('App\Book', 'author_id', 'id');
     }
 }

@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/home', function () {
-    return view('main.home');
-})->name('home');
+Route::get('/home', [
+    'as'=>'home',
+    'uses'=>'PageController@getIndex'
+]);  
 
 Route::get('cart', function () {
     return view('main.cart');
@@ -26,9 +27,6 @@ Route::get('book', function () {
     return view('main.book');
 })->name('book');
 
-Route::get('cart', function () {
-    return view('main.cart');
-})->name('cart');
 
 Route::get('login', function () {
     return view('main.login');
@@ -45,9 +43,11 @@ Route::post('checkout', function () {
     return view('main.checkout');
 })->name('checkout');
 
-Route::get('book-detail', function () {
-    return view('main.book-detail');
-})->name('book-detail');
+
+Route::get('book-detail/{id?}', [
+    'as'=>'book-detail',
+    'uses'=>'PageController@getBookDetails'
+]);
 
 Route::get('search-result', function () {
     return view('main.search-result');
