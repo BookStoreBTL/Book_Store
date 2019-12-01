@@ -184,7 +184,7 @@
                     <div class="col-sm-12 col-md-4 col-lg-3">
                         <div class="card">
                             <a href="cart.html">
-                                <img class="card-img-top" src="{{asset('img/bestsell-1.jpg')}}" alt="Card image cap" height="350px">
+                                <img class="card-img-top" src="{{asset('img/Y5idy_bestsell-1.jpg')}}" alt="Card image cap" height="350px">
                             </a>
                             <span class="onsale">
                                 sale!

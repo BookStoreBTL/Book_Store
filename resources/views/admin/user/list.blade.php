@@ -7,7 +7,7 @@
             <div class="row">
             
                 <div class="col-lg-12">
-                    <h1 class="page-header">Book
+                    <h1 class="page-header">User
                         <small>List</small>
                     </h1>
                 </div>
@@ -22,23 +22,29 @@
                         <tr align="center">
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Price</th>
-                            <th>QuantityInStock</th>
+                            <th>Phone Number</th>
+                            <th>Email</th>
+                            <th>Address</th>
+                            <th>Level</th>
                             <th>Delete</th>
                             <th>Edit</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($book as $b)
+                        @foreach($user as $u)
                         <tr class="odd gradeX" align="center">
-                            <td>{{$b->id}}</td>
+                            <td>{{$u->id}}</td>
+                            <td>{{$u->user_name}}</td>
+                            <td>{{$u->phone_number}}</td>
+                            <td>{{$u->email}}</td>
+                            <td>{{$u->address}}</td>
                             <td>
-                                <div>{{$b->name}}</div>
+                                @if($u->level == 1) {{"Admin"}}
+                                @else {{"User"}}
+                                @endif
                             </td>
-                            <td>{{$b->price}}</td>
-                            <td>{{$b->quantity_in_stock}}</td>
-                            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/book/delete/{{$b->id}}"> Delete</a></td>
-                            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/book/edit/{{$b->id}}">Edit</a></td>
+                            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/user/delete/{{$u->id}}"> Delete</a></td>
+                            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/user/edit/{{$u->id}}">Edit</a></td>
                         </tr>
                         @endforeach
                     </tbody>

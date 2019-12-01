@@ -57,12 +57,15 @@ Route::get('contact', function(){
     return view('main.contact');
 })->name('contact');
 
-Route::get('getBook', 'BookController@getBook');
-
 /**
  * Route danh cho admin
  */
-Route::group(['prefix'=>'admin'], function(){
+
+Route::get('admin/login', 'UserController@getLoginAdmin');
+Route::post('admin/login', 'UserController@postLoginAdmin');
+Route::get('admin/logout', 'UserController@getLogoutAdmin');
+
+Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'], function(){
     Route::group(['prefix'=>'category'], function(){
         Route::get('list', 'CategoryController@getList');
         Route::get('add', 'CategoryController@getAdd');
@@ -74,5 +77,62 @@ Route::group(['prefix'=>'admin'], function(){
 
     Route::group(['prefix'=>'book'], function(){
         Route::get('list', 'BookController@getList');
+        Route::get('add', 'BookController@getAdd');
+        Route::post('add', 'BookController@postAdd');
+        Route::get('edit/{id}', 'BookController@getEdit');
+        Route::post('edit/{id}', 'BookController@postEdit');
+        Route::get('delete/{id}', 'BookController@getDelete');
+    });
+
+    Route::group(['prefix'=>'user'], function(){
+        Route::get('list', 'UserController@getList');
+        Route::get('edit/{id}', 'UserController@getEdit');
+        Route::post('edit/{id}', 'UserController@postEdit');
+        Route::get('delete/{id}', 'UserController@getDelete');
+        Route::get('changepassword', 'UserController@getChangePassword');
+        Route::post('changepassword/{id}', 'UserController@postChangePassword');
+    });
+
+    Route::group(['prefix'=>'author'], function(){
+        Route::get('list', 'AuthorController@getList');
+        Route::get('add', 'AuthorController@getAdd');
+        Route::post('add', 'AuthorController@postAdd');
+        Route::get('edit/{id}', 'AuthorController@getEdit');
+        Route::post('edit/{id}', 'AuthorController@postEdit');
+        Route::get('delete/{id}', 'AuthorController@getDelete');
+    });
+
+    Route::group(['prefix'=>'language'], function(){
+        Route::get('list', 'LanguageController@getList');
+        Route::get('add', 'LanguageController@getAdd');
+        Route::post('add', 'LanguageController@postAdd');
+        Route::get('edit/{id}', 'LanguageController@getEdit');
+        Route::post('edit/{id}', 'LanguageController@postEdit');
+        Route::get('delete/{id}', 'LanguageController@getDelete');
+    });
+
+    Route::group(['prefix'=>'publisher'], function(){
+        Route::get('list', 'PublisherController@getList');
+        Route::get('add', 'PublisherController@getAdd');
+        Route::post('add', 'PublisherController@postAdd');
+        Route::get('edit/{id}', 'PublisherController@getEdit');
+        Route::post('edit/{id}', 'PublisherController@postEdit');
+        Route::get('delete/{id}', 'PublisherController@getDelete');
+    });
+
+    Route::group(['prefix'=>'contact'], function(){
+        Route::get('list', 'ContactController@getList');
+        Route::get('edit/{id}', 'ContactController@getEdit');
+        Route::post('edit/{id}', 'ContactController@postEdit');
+        Route::get('delete/{id}', 'ContactController@getDelete');
+    });
+
+    Route::group(['prefix'=>'review'], function(){
+        Route::get('list', 'ReviewController@getList');
+        Route::get('delete/{id}', 'ReviewController@getDelete');
+    });
+
+    Route::group(['prefix'=>'order'], function(){
+        Route::get('list', 'OrderController@getList');
     });
 });

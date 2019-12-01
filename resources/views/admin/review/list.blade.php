@@ -7,7 +7,7 @@
             <div class="row">
             
                 <div class="col-lg-12">
-                    <h1 class="page-header">Book
+                    <h1 class="page-header">Review
                         <small>List</small>
                     </h1>
                 </div>
@@ -21,24 +21,20 @@
                     <thead>
                         <tr align="center">
                             <th>ID</th>
-                            <th>Name</th>
-                            <th>Price</th>
-                            <th>QuantityInStock</th>
+                            <th>Book Name</th>
+                            <th>User Name</th>
+                            <th>Content</th>
                             <th>Delete</th>
-                            <th>Edit</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($book as $b)
+                        @foreach($review as $r)
                         <tr class="odd gradeX" align="center">
-                            <td>{{$b->id}}</td>
-                            <td>
-                                <div>{{$b->name}}</div>
-                            </td>
-                            <td>{{$b->price}}</td>
-                            <td>{{$b->quantity_in_stock}}</td>
-                            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/book/delete/{{$b->id}}"> Delete</a></td>
-                            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/book/edit/{{$b->id}}">Edit</a></td>
+                            <td>{{$r->id}}</td>
+                            <td>{{$r->book->name}}</td>
+                            <td>{{$r->user->user_name}}</td>
+                            <td>{{$r->title}}</td>
+                            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/review/delete/{{$r->id}}"> Delete</a></td>
                         </tr>
                         @endforeach
                     </tbody>

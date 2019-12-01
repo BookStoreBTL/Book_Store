@@ -44,13 +44,12 @@ class CategoryController extends Controller
 
         $this->validate($request, 
         [
-            'name'=>'required|min:3|max:100|unique:category,name'
+            'name'=>'required|min:3|max:100'
         ], 
         [
             'name.required' => 'Ban chua nhap ten the loai',
             'name.min' => 'Do dai ten the loai phai tu 3 den 100 ki tu',
-            'name.max' => 'Do dai ten the loai phai tu 3 den 100 ki tu',
-            'name.unique' => 'Ten the loai da ton tai'
+            'name.max' => 'Do dai ten the loai phai tu 3 den 100 ki tu'
         ]);
 
         $category->name = $request->name;

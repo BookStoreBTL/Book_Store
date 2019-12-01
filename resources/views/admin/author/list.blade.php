@@ -7,7 +7,7 @@
             <div class="row">
             
                 <div class="col-lg-12">
-                    <h1 class="page-header">Book
+                    <h1 class="page-header">Author
                         <small>List</small>
                     </h1>
                 </div>
@@ -22,23 +22,23 @@
                         <tr align="center">
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Price</th>
-                            <th>QuantityInStock</th>
+                            <th>Description</th>
+                            <th>Img</th>
                             <th>Delete</th>
                             <th>Edit</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($book as $b)
+                        @foreach($author as $a)
                         <tr class="odd gradeX" align="center">
-                            <td>{{$b->id}}</td>
+                            <td>{{$a->id}}</td>
+                            <td>{{$a->name}}</td>
+                            <td>{{$a->description}}</td>
                             <td>
-                                <div>{{$b->name}}</div>
+                                <img width="90px" src="img/{{$a->img}}">
                             </td>
-                            <td>{{$b->price}}</td>
-                            <td>{{$b->quantity_in_stock}}</td>
-                            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/book/delete/{{$b->id}}"> Delete</a></td>
-                            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/book/edit/{{$b->id}}">Edit</a></td>
+                            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/author/delete/{{$a->id}}"> Delete</a></td>
+                            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/author/edit/{{$a->id}}">Edit</a></td>
                         </tr>
                         @endforeach
                     </tbody>

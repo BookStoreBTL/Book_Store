@@ -7,7 +7,7 @@
             <div class="row">
             
                 <div class="col-lg-12">
-                    <h1 class="page-header">Book
+                    <h1 class="page-header">Contact
                         <small>List</small>
                     </h1>
                 </div>
@@ -21,24 +21,22 @@
                     <thead>
                         <tr align="center">
                             <th>ID</th>
-                            <th>Name</th>
-                            <th>Price</th>
-                            <th>QuantityInStock</th>
+                            <th>User Name</th>
+                            <th>Content</th>
+                            <th>Status</th>
                             <th>Delete</th>
                             <th>Edit</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($book as $b)
+                        @foreach($contact as $c)
                         <tr class="odd gradeX" align="center">
-                            <td>{{$b->id}}</td>
-                            <td>
-                                <div>{{$b->name}}</div>
-                            </td>
-                            <td>{{$b->price}}</td>
-                            <td>{{$b->quantity_in_stock}}</td>
-                            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/book/delete/{{$b->id}}"> Delete</a></td>
-                            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/book/edit/{{$b->id}}">Edit</a></td>
+                            <td>{{$c->id}}</td>
+                            <td>{{$c->user->user_name}}</td>
+                            <td>{{$c->title}}</td>
+                            <td>{{$c->status}}</td>
+                            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/contact/delete/{{$c->id}}"> Delete</a></td>
+                            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/contact/edit/{{$c->id}}">Edit</a></td>
                         </tr>
                         @endforeach
                     </tbody>

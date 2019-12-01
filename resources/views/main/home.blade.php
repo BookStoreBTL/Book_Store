@@ -1,69 +1,91 @@
 @extends('main.layout.index')
 @section('content')
 <div class="container-fluid">
-        <div class="row">
-            <img class="home-page" src="{{asset('img/home-page.jpg')}}" alt="">
+    <div class="row">
+        <img class="home-page" src="{{asset('img/home-page.jpg')}}" alt="">
+    </div>
+    <div class="home-page-layout layout">
+        <div class="title-small">COME AND JOIN THE BOOK STORE</div>
+        <div class="title-lagre">enjoy the silence in our reading room.</div>
+    </div>
+</div>
+
+<div class="container book-section" style="margin-top: 20px">
+    <div class="row book-title">
+        <div class="col-auto mr-auto">
+            <h1 style="margin-left: 30px;">Books</h1>
         </div>
-        <div class="home-page-layout layout">
-            <div class="title-small">COME AND JOIN THE BOOK STORE</div>
-            <div class="title-lagre">enjoy the silence in our reading room.</div>
+        <div class="col-auto float-right">
+            <div class="list-group float-right" id="myList" role="tablist">
+                <a class="list-group-item list-group-item-action active" data-toggle="list" href="#book-details" role="tab">Best Seller</a>
+                <a class="list-group-item list-group-item-action" data-toggle="list" href="#reviews" role="tab">Sell</a>
+            </div>
         </div>
     </div>
 
-    <div class="container book-section" style="margin-top: 20px">
-        <div class="row book-title">
-            <div class="col-auto mr-auto">
-                <h1>Books</h1>
-            </div>
-            <div class="col-auto">
-                <ul class="list-group list-group-horizontal float-right">
-                    <li class="list-group-item lgi-active">
-                        <a href="">
-                            <span>BEST SELLER</span>
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="">
-                            <span>SELL</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="row book-item">
-            <div class="card-group">
-                @foreach($book as $item)
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="card">
-                        <a href="{{route('book-detail',$item->id)}}">
-                            <img class="card-img-top" src="img/{{$item->img}}" alt="Card image cap" height="350px">
-                        </a>
-                        <span class="onsale">
-                            sale!
-                        </span>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="{{route('book-detail')}}">{{$item->name}}</a>
-                            </h4>
-                            <h6 class="card-text author">
-                                <small class="text-muted">
-                                    <a href="">{{$item->author->name}}</a>
-                                </small>
-                            </h6>
-                            <h5 class="card-text price">
-                                @if($item->sale_price == 0)
-                                <span>${{$item->price}}</span>                              
-                                @else
-                                <span class="old-price">${{$item->price}}</span>
-                                <span>${{$item->sale_price}}</span>
-                                @endif
-                            </h5>
+    <div class="col-lg-12">
+        <div class="tab-content">
+            <div class="tab-pane active" id="book-details" role="tabpanel">
+                <div class="card-group">
+                    @foreach($book as $item)
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card">
+                            <a href="{{route('book-detail',$item->id)}}">
+                                <img class="card-img-top" src="img/{{$item->img}}" alt="Card image cap" height="350px">
+                            </a>
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <a href="{{route('book-detail')}}">{{$item->name}}</a>
+                                </h4>
+                                <h6 class="card-text author">
+                                    <small class="text-muted">
+                                        <a href="">{{$item->author->name}}</a>
+                                    </small>
+                                </h6>
+                                <h5 class="card-text price">
+                                    @if($item->sale_price == 0)
+                                    <span>${{$item->price}}</span>
+                                    @else
+                                    <span class="old-price">${{$item->price}}</span>
+                                    <span>${{$item->sale_price}}</span>
+                                    @endif
+                                </h5>
+                            </div>
                         </div>
                     </div>
-                </div>            
-                @endforeach
-                <div class="row">{{$book->links()}}</div>
+                    @endforeach
+                </div>
+            </div>
+            <div class="tab-pane" id="reviews" role="tabpanel">
+                <div class="card-group">
+                    @foreach($book as $item)
+                    <div class="col-sm-6 col-md-4 col-lg-3">
+                        <div class="card">
+                            <a href="{{route('book-detail',$item->id)}}">
+                                <img class="card-img-top" src="img/{{$item->img}}" alt="Card image cap" height="350px">
+                            </a>
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <a href="{{route('book-detail')}}">{{$item->name}}</a>
+                                </h4>
+                                <h6 class="card-text author">
+                                    <small class="text-muted">
+                                        <a href="">{{$item->author->name}}</a>
+                                    </small>
+                                </h6>
+                                <h5 class="card-text price">
+                                    @if($item->sale_price == 0)
+                                    <span>${{$item->price}}</span>
+                                    @else
+                                    <span class="old-price">${{$item->price}}</span>
+                                    <span>${{$item->sale_price}}</span>
+                                    @endif
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>
@@ -192,4 +214,4 @@
                     </a> -->
         </div>
     </div>
-@endsection
+    @endsection

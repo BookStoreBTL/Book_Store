@@ -31,7 +31,7 @@
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Please Sign In</h3>
+                        <h3 class="panel-title">Change Password</h3>
                     </div>
                     <div class="panel-body">
                         @if(count($errors) > 0)
@@ -43,20 +43,22 @@
                         @endif
 
                         @if(session('thongbao'))
-                            <div class="alert alert-danger">
+                            <div class="alert alert-success">
                                 {{session('thongbao')}}
                             </div>
                         @endif
-
-                        <form role="form" action="admin/login" method="POST">
+                        <form role="form" action="admin/user/changepassword/{{Auth::user()->id}}" method="POST">
                             <input type="hidden" name="_token" value="{{csrf_token()}}"> 
     
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                    <input class="form-control" placeholder="Old Password" name="old_password" type="password" autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                    <input class="form-control" placeholder="New Password" name="new_password" type="password" value="">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Confirm Password" name="cf_password" type="password" value="">
                                 </div>
                                 <button type="submit" class="btn btn-lg btn-success btn-block">Login</button>
                             </fieldset>

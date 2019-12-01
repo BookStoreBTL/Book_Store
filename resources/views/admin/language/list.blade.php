@@ -7,7 +7,7 @@
             <div class="row">
             
                 <div class="col-lg-12">
-                    <h1 class="page-header">Book
+                    <h1 class="page-header">Language
                         <small>List</small>
                     </h1>
                 </div>
@@ -22,23 +22,17 @@
                         <tr align="center">
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Price</th>
-                            <th>QuantityInStock</th>
                             <th>Delete</th>
                             <th>Edit</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($book as $b)
+                        @foreach($language as $l)
                         <tr class="odd gradeX" align="center">
-                            <td>{{$b->id}}</td>
-                            <td>
-                                <div>{{$b->name}}</div>
-                            </td>
-                            <td>{{$b->price}}</td>
-                            <td>{{$b->quantity_in_stock}}</td>
-                            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/book/delete/{{$b->id}}"> Delete</a></td>
-                            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/book/edit/{{$b->id}}">Edit</a></td>
+                            <td>{{$l->id}}</td>
+                            <td>{{$l->name}}</td>
+                            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="admin/language/delete/{{$l->id}}"> Delete</a></td>
+                            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/language/edit/{{$l->id}}">Edit</a></td>
                         </tr>
                         @endforeach
                     </tbody>

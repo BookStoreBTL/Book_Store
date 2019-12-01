@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Admin - BookStore</title>
-    
+
     <base href="{{asset('')}}">
 
     <!-- Bootstrap Core CSS -->
@@ -27,6 +28,8 @@
 
     <!-- DataTables Responsive CSS -->
     <link href="admin_asset/bower_components/datatables-responsive/css/dataTables.responsive.css" rel="stylesheet">
+
+    <link href="css/admin.css" rel="stylesheet">
 
 </head>
 
@@ -62,12 +65,16 @@
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
-    $(document).ready(function() {
-        $('#dataTables-example').DataTable({
+        $(document).ready(function() {
+            $('#dataTables-example').DataTable({
                 responsive: true
+            });
         });
-    });
+        @yield('script')
     </script>
+
+    <script type="text/javascript" language="javascript" src="admin_asset/ckeditor/ckeditor.js"></script>
+
 </body>
 
 </html>
