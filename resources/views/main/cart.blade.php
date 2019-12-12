@@ -1,6 +1,6 @@
 @extends('main.layout.index')
 @section('content')
-<div class="container first-content">
+<div class="container first-content cart-section">
   <form action="cart" method="POST">
     <input type="hidden" name="_token" value="{{csrf_token()}}">
     <table class="table">
@@ -15,6 +15,7 @@
         </tr>
       </thead>
       <tbody>
+
         <tr>
           <td class="product-remove">
             <a href="" class="remove">X
@@ -22,22 +23,23 @@
           </td>
           <td class="product-image">
             <a href="">
-              <img src="bestsell-1.jpg" alt="">
+              <img src="img/Y5idy_bestsell-1.jpg" alt="">
             </a>
           </td>
           <td class="product-name">
             <a href="">a spy: a novel</a>
           </td>
-          <td class="product-price"><span>
-              $21.51
+          <td class="product-price">
+              $<span>21.99</span>
             </span>
           </td>
           <td class="product-quantity">
             <div class="quantity">
-              <input type="number" step="1" min="0" value="1" size="4" inputmode="numeric">
+              <input class="quantity-input" type="number" step="1" min="1" value="1" size="4" inputmode="numeric">
             </div>
           </td>
-          <td class="product-total">$21.51</td>
+          <td id="total" class="product-total">$
+            <span>21.99</span></td>
         </tr>
         <tr>
           <td class="product-remove">
@@ -46,23 +48,24 @@
           </td>
           <td class="product-image">
             <a href="">
-              <img src="bestsell-2.jpg" alt="">
+              <img src="img/bestsell-2.jpg" alt="">
             </a>
           </td>
           <td class="product-name">
             <a href="">a brief history of time</a>
           </td>
-          <td class="product-price"><span>
-              $21.51
+          <td class="product-price">
+              $<span>19.99</span>
             </span>
           </td>
           <td class="product-quantity">
             <div class="quantity">
-              <input type="number" step="1" min="0" value="1" size="4" inputmode="numeric">
+              <input class="quantity-input" type="number" step="1" min="1" value="1" size="4" inputmode="numeric">
             </div>
           </td>
-          <td class="product-total">$21.51</td>
+          <td class="product-total">$<span>19.99</span></td>
         </tr>
+
         <tr>
           <th colspan="4">
             <div class="coupon">
@@ -115,4 +118,17 @@
   </div>
 </div>
 <div class="clearfix"></div>
+@endsection
+
+@section('script')
+  $(document).ready(function(){
+    $('.quantity-input').change(function(){
+      $price = $(this).parents('.product-quantity').prev().children('span').text();
+      $quantity = $(this).val();
+      $total = $price * $quantity;
+      $(this).parents('.product-quantity').next().text($total);
+    })
+  })
+
+
 @endsection

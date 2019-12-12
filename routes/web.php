@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -57,6 +57,7 @@ Route::get('contact', function(){
     return view('main.contact');
 })->name('contact');
 
+Route::resource('payment', 'PaymentController');
 /**
  * Route danh cho admin
  */
@@ -136,3 +137,4 @@ Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'], function(){
         Route::get('list', 'OrderController@getList');
     });
 });
+

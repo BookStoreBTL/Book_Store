@@ -22,7 +22,8 @@
             <div class="checkout-form-option--content"></div>
         </div>
 
-        <form name="checkout" method="POST" class="checkout woocommerce-checkout" action="">
+        <form name="checkout" method="POST" class="checkout woocommerce-checkout" action="{{url('payment')}}">
+        <input type="hidden" name="_token" value="{{csrf_token()}}">
             <div class="col2-set" id="customer_details">
                 <div class="col1">
                     <div class="woocommerce-billing-fields">

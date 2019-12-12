@@ -19,10 +19,10 @@ table td{
     width: 2.5%;
 }
 .product-remove .remove{
-    opacity: 0;
     transition: all .3s cubic-bezier(.175,.885,.32,1.075);
     font-size: 20px;
 }
+
 .active{
     opacity: 1!important;
 }

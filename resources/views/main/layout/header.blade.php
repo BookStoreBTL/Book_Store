@@ -33,9 +33,9 @@
                                             <span class="username">doanmai</span>
                                         </a>
                                     </li>
-                                    <li class="menu-item">
+                                    <!-- <li class="menu-item">
                                         <a class="btn btn-outline-primary" href="{{route('login')}}">Login</a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </nav>
                             <div class="header-search-input menu-skin-dark">
