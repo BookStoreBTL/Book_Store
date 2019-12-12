@@ -5,19 +5,36 @@
         <h1 class="title">Create an account</h1>
         <hr>
         <div class="row m-0">
-            <form class="col-md-5 p-0 pr-md-3">
+            <form class="col-md-5 p-0 pr-md-3" method="POST" action="{{route('dangky')}}">
+                <input type="hidden" name="_token" value="{{csrf_token()}}">
+                @if(Session::has('thanhcong'))
+                    <div class="row thong_bao">{{Session::get('thanhcong')}}</div>
+                @endif
+
+                @if(count($errors)>0) 
+                    <div class="err-register">
+                        @foreach($errors->all() as $err)
+                            <div>{{$err}}</div>
+                        @endforeach
+                    </div>
+                @endif
+
                 <div class="small mb-2">Please enter the following information to create your account.</div>
                 <div class="form-group">
-                    <label for="firstName">Fist Name*</label>
-                    <input type="text" id="firstName" name="firstName" class="form-control">
+                    <label for="name">Name*</label>
+                    <input type="text" id="name" name="name" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="lastName">Last Name *</label>
-                    <input type="text" id="lastName" name="lastName" class="form-control">
+                    <label for="address">Address</label>
+                    <input type="text" id="address" name="address" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="email">Email address *</label>
                     <input type="email" id="email" name="email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone number</label>
+                    <input type="text" id="phone" name="phone" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="password">Password *</label>
@@ -25,7 +42,7 @@
                 </div>
                 <div class="form-group">
                     <label for="confirmPassword">Confirm Password *</label>
-                    <input type="password" id="password" name="password" class="form-control">
+                    <input type="password" id="password" name="repassword" class="form-control">
                 </div>
                 <div class="form-group form-check">
                     <input type="checkbox" id="newsletter" name="newsletter" class="form-check-input">

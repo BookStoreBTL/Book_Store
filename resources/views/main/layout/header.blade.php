@@ -25,17 +25,25 @@
                                         <a href="{{route('cart')}}" >
                                             <i class="fa fa-shopping-bag"></i>
                                         </a>
-                                        <span class="number-shopping">3</span>
+                                        <span class="number-shopping"> @if(Session::has('cart')){{Session::get('cart')->totalQty}} @else {{0}}@endif</span>
                                     </li>
+                                    @if(Auth::check())
                                     <li class="menu-item">
                                         <a href="">
                                             <i class="fa fa-user"></i>
-                                            <span class="username">doanmai</span>
+                                            <span class="username">{{Auth::user()->user_name}}</span>
                                         </a>
                                     </li>
-                                    <!-- <li class="menu-item">
-                                        <a class="btn btn-outline-primary" href="{{route('login')}}">Login</a>
-                                    </li> -->
+                                    <li class="menu-item">
+                                        <a class="btn btn-outline-primary" href="{{route('dangxuat')}}">Logout</a>
+                                    </li>
+                                    @else
+                                    <li class="menu-item">
+                                        <a class="btn btn-outline-primary" href="{{route('dangnhap')}}">Login</a>
+                                    </li>
+                                    @endif
+                                   
+                                    
                                 </ul>
                             </nav>
                             <div class="header-search-input menu-skin-dark">

@@ -16,25 +16,60 @@ Route::get('/home', [
     'uses'=>'PageController@getIndex'
 ]);  
 
-Route::get('cart', function () {
-    return view('main.cart');
-})->name('cart');
-Route::post('cart', function(){
-    return view('main.cart');
-})->name('cart');
+// Route::get('addcart',[
+//     'as'=>'addcart',
+//     'uses'=>'PageController@getCart'
+// ]);
 
-Route::get('book', function () {
-    return view('main.book');
-})->name('book');
+Route::get('del-cart/{id}',[
+    'as'=>'deletecart',
+    'uses'=>'PageController@getDelCart'
+]);
 
+Route::get('add-cart/{id}', [
+    'as'=>'addcart',
+    'uses'=>'PageController@getAddCart'
+]);
 
-Route::get('login', function () {
-    return view('main.login');
-})->name('login');
+Route::get('cart',[
+    'as'=>'cart',
+    'uses'=>'PageController@getCart'
+]);
 
-Route::get('register', function () {
-    return view('main.register');
-})->name('register');
+Route::post('updatecart',[
+    'as'=>'updatecart',
+    'uses'=>'PageController@postUpdateCart'
+]);
+
+Route::get('/book',[
+    'as'=>'book',
+    'uses'=>'PageController@getBooks'
+]);
+
+Route::get('login', [
+    'as'=>'dangnhap',
+    'uses'=>'PageController@getLogin'
+]);
+
+Route::post('login',[
+    'as'=>'dangnhap',
+    'uses'=>'PageController@postLogin'
+]);
+
+Route::get('register', [
+    'as'=>'dangky',
+    'uses'=>'PageController@getRegister'
+]);
+
+Route::post('register',[
+    'as'=>'dangky',
+    'uses'=>'PageController@postRegister'
+]);
+
+Route::get('logout',[
+    'as'=>'dangxuat',
+    'uses'=>'PageController@getLogout'
+]);
 
 Route::get('checkout', function () {
     return view('main.checkout');
@@ -49,14 +84,14 @@ Route::get('book-detail/{id?}', [
     'uses'=>'PageController@getBookDetails'
 ]);
 
-Route::get('search-result', function () {
-    return view('main.search-result');
-})->name('search-result');
+Route::get('search-result', [
+    'as'=>'search',
+    'uses'=>'PageController@getSearch'
+]);
 
 Route::get('contact', function(){
     return view('main.contact');
 })->name('contact');
-
 Route::resource('payment', 'PaymentController');
 /**
  * Route danh cho admin

@@ -102,78 +102,35 @@
                 <h1 class="name">danielle steel</h1>
                 <p class="descipt">Danielle Steel is an American author. Born in Idaho to a father opposed to public education, she never attended school. She spent her days working in her father’s junkyard or stewing herbs for her mother, a self-taught herbalist and midwife. She was seventeen the first time she set foot in a classroom.</p>
                 <div class="row">
+                    @foreach($book_month as $item)
                     <div class="col-sm-4 col-md-3">
                         <div class="card">
-                            <a href="">
-                                <img class="card-img-top" src="{{asset('img/bestsell-1.jpg')}}" alt="Card image cap">
+                            <a href="{{route('book-detail',$item->id)}}">
+                                <img class="card-img-top" src="img/{{$item->img}}" alt="Card image cap">
                             </a>
                             <div class="card-body">
                                 <h5 class="card-title">
-                                    <a href="">Spy: A Novel</a>
+                                    <a href="">{{$item->name}}</a>
                                 </h5>
                                 <h6 class="card-text author">
                                     <small class="text-muted">
                                         <a href="">danielle steel</a>
                                     </small>
                                 </h6>
-                                <h6 class="card-text price">$23.00</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4 col-md-3">
-                        <div class="card">
-                            <a href="">
-                                <img class="card-img-top" src="{{asset('img/author-month-book-1.png')}}" alt="Card image cap">
-                            </a>
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <a href="">blessing in disguise: a novel</a>
-                                </h5>
-                                <h6 class="card-text author">
-                                    <small class="text-muted">
-                                        <a href="">danielle steel</a>
-                                    </small>
+                                <h6 class="card-text price">
+                                    @if($item->sale_price == 0)
+                                    <span>${{$item->price}}</span>
+                                    @else
+                                    <span class="old-price">${{$item->price}}</span>
+                                    <span>${{$item->sale_price}}</span>
+                                    @endif
                                 </h6>
-                                <h6 class="card-text price">$13.91</h6>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-4 col-md-3">
-                        <div class="card">
-                            <a href="">
-                                <img class="card-img-top" src="{{asset('img/author-month-book-2.jpg')}}" alt="Card image cap">
-                            </a>
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <a href="">silient night: a novel</a>
-                                </h5>
-                                <h6 class="card-text author">
-                                    <small class="text-muted">
-                                        <a href="">danielle steel</a>
-                                    </small>
-                                </h6>
-                                <h6 class="card-text price">$31.00</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4 col-md-3">
-                        <div class="card">
-                            <a href="">
-                                <img class="card-img-top" src="{{asset('img/author-month-book-3.jpg')}}" alt="Card image cap">
-                            </a>
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <a href="">lost ang found: a novel</a>
-                                </h5>
-                                <h6 class="card-text author">
-                                    <small class="text-muted">
-                                        <a href="">danielle steel</a>
-                                    </small>
-                                </h6>
-                                <h6 class="card-text price">$15.00</h6>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+                    
+                    
                 </div>
             </div>
         </div>

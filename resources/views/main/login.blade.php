@@ -16,9 +16,15 @@
                                 <li>Create your wishlist</li>
                             </ul>
                         </div>
-                        <a href="{{route('register')}}" class="btn btn-primary btn-block col-md-6">Create an account</a>
+                        <a href="{{route('dangky')}}" class="btn btn-primary btn-block col-md-6">Create an account</a>
                     </div>
-                    <form class="col-md-6 p-0 pl-md3">
+                    <form class="col-md-6 p-0 pl-md3" method="POST" action="{{route('dangnhap')}}">
+                        <input type="hidden" name="_token" value="{{csrf_token()}}">
+                        @if(Session::has('thanhcong'))
+                            <div class="row thong_bao">{{Session::get('thanhcong')}}</div>
+                        @elseif(Session::has('kthanhcong'))
+                            <div class="row thong_bao">{{Session::get('kthanhcong')}}</div>
+                        @endif
                         <h2>Log in here</h2>
                         <div class="small mb-2">If you have an account with us, please log in.</div>
                         <div class="form-group">
