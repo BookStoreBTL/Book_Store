@@ -7,10 +7,13 @@ use App\Cart;
 use App\Author;
 use App\Language;
 use App\Category;
+use App\Order;
+use App\OrderDetail;
 use Session;
 use Hash;
 use Auth;
 use Input;
+use Carbon\Carbon;
 
 use Illuminate\Http\Request;
 
@@ -35,32 +38,60 @@ class PageController extends Controller
         $books_relate = Book::where('category_id', $book_detail->category_id)->paginate(6);
         return view('main.book-detail',compact('book_detail','books_relate'));
     }
-    public function getAddCart(Request $req, $id) {
+
+    public function getAddCart(Cart $cart, $id) {
         $book = Book::find($id);
-        $oldCart = Session('cart')?Session::get('cart'):null;
-        $cart = new Cart($oldCart);
-        $cart->add($book, $id);
-        $req->session()->put('cart',$cart);
+        $cart->add($book);
         return redirect()->back()->with('success','thanh cong');
     }
 
-    public function getCart() {
+    public function getRemoveCart(Cart $cart, $id) {
+        $cart->remove($id);
+        return redirect()->back();
+    }
+
+    public function getUpdateCart(Cart $cart, $id) {
+        $quantity = request()->quantity ? request()->quantity : 1; 
+        $cart->update($id, $quantity);
+        return redirect()->back();
+    }
+
+    public function getClearCart(Cart $cart) {
+        $cart->clear();
+        return redirect()->back();
+    }
+
+    public function getViewCart() {
         return view('main.cart');
     }
 
 
-    public function getDelCart($id) {
-        $oldCart = Session::has('cart')?Session::get('cart'):null;
-        $cart = new Cart($oldCart);
-        $cart->delete($id);
-        if(count($cart->items)>0) {
-            Session::put('cart', $cart);
-        } else {
-            Session::forget('cart');
-        }
+    // public function getAddCart(Request $req, $id) {
+    //     $book = Book::find($id);
+    //     $oldCart = Session('cart')?Session::get('cart'):null;
+    //     $cart = new Cart($oldCart);
+    //     $cart->add($book, $id);
+    //     $req->session()->put('cart',$cart);
+    //     return redirect()->back()->with('success','thanh cong');
+    // }
+
+    // public function getCart() {
+    //     return view('main.cart');
+    // }
+
+
+    // public function getDelCart($id) {
+    //     $oldCart = Session::has('cart')?Session::get('cart'):null;
+    //     $cart = new Cart($oldCart);
+    //     $cart->delete($id);
+    //     if(count($cart->items)>0) {
+    //         Session::put('cart', $cart);
+    //     } else {
+    //         Session::forget('cart');
+    //     }
         
-        return redirect()->back();
-    }
+    //     return redirect()->back();
+    // }
     
 
     public function getRegister() {
@@ -122,13 +153,40 @@ class PageController extends Controller
             }
     }
 
+    public function postCheckout(Request $req) {
+        $ship_date = Carbon::now();
+        $ship_date->day = Carbon::now()->day + 5;
+        $order = new Order();
+        $order->user_id = Auth::user()->id;
+        $order->order_date = Carbon::now();
+        $order->shipped_date = $ship_date;
+        $order->status = "Shipping";
+        $order->save();
+
+        $cart = Session::get('cart');
+        foreach($cart as $item) {
+            $order_detail = new OrderDetail();
+            $order_detail->order_id = $order->id;
+            $order_detail->book_id = $item['id'];
+            $order_detail->quantity_order = $item['quantity'];
+        }
+
+        $order_detail->save();
+        return view('main.checkout');
+    }
+
     public function getLogout() {
         Auth::logout();
         return redirect()->route('home');
     }
 
+
     public function getSearch(Request $req) {
         $product = Book::where('name', 'like','%'.$req->search.'%')->orWhere('price',$req->search)->paginate(4);
         return view('main.search-result', compact('product'));
+    }
+
+    public function postTest() {
+        return view(main.home);
     }
 }
