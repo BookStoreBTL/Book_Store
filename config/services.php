@@ -33,13 +33,13 @@ return [
     'facebook' => [
         'client_id' => '541870543211175',
         'client_secret' => '1aa1887bbda6312c3411c9e1ef9cde01',
-        'redirect' => 'http://localhost:8080/BookStore/public/facebook/callback'
+        'redirect' => 'https://bookstore-uet.herokuapp.com/facebook/callback'
     ],
 
     'google' => [
         'client_id' => '753227558932-bmber56m4qdgg2qh7jao83q4h9qt86e7.apps.googleusercontent.com',
         'client_secret' => 'sHkJ6Xq9iuezhBP_HyedpLxp',
-        'redirect' => 'http://localhost:8080/BookStore/public/google/callback'
+        'redirect' => 'https://bookstore-uet.herokuapp.com/google/callback'
     ]
 
 ];
