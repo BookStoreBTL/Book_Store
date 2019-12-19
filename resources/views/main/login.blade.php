@@ -27,6 +27,8 @@
                         @endif
                         <h2>Log in here</h2>
                         <div class="small mb-2">If you have an account with us, please log in.</div>
+                        <a href="{{ url('facebook/redirect') }}" class="btn btn-link btn-block">Login with Facebook</a>
+                        <a href="{{ url('google/redirect') }}" class="btn btn-link btn-block">Login with Google</a>
                         <div class="form-group">
                             <label for="email">Email address *</label>
                             <input type="email" id="email" name="email" class="form-control">

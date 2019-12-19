@@ -24,7 +24,7 @@
                             <a href="{{route('cart')}}">
                                 <i class="fa fa-shopping-bag"></i>
                             </a>
-                            <span class="number-shopping"> @if(Session::has('cart')){{Session::get('cart')->totalQty}} @else {{0}}@endif</span>
+                            <span class="number-shopping">{{$cart->totalQty}}</span>
                         </li>
                         @if(Auth::user())
                         <li class="dropdown">
