@@ -154,12 +154,6 @@ class PageController extends Controller
 
     public function getAddCart(Cart $cart, $id)
     {
-        // $book = Book::find($id);
-        // $oldCart = Session('cart') ? Session::get('cart') : null;
-        // $cart = new Cart($oldCart);
-        // $cart->add($book, $id);
-        // $req->session()->put('cart', $cart);
-        // return redirect()->back()->with('success', 'thanh cong');
         $book = Book::find($id);
         $cart->add($book);
         return redirect()->back()->with('success','thanh cong');
@@ -175,28 +169,6 @@ class PageController extends Controller
         return redirect()->back();
     }
 
-<<<<<<< HEAD
-=======
-    // public function getDelCart($id)
-    // {
-    //     $oldCart = Session::has('cart') ? Session::get('cart') : null;
-    //     $cart = new Cart($oldCart);
-    //     $cart->delete($id);
-    //     if (count($cart->items) > 0) {
-    //         Session::put('cart', $cart);
-    //     } else {
-    //         Session::forget('cart');
-    //     }
-
-    //     return redirect()->back();
-    // }
-
-    // public function getCheckout()
-    // {
-    //     return view('main.checkout');
-    // }
-
->>>>>>> 31253ac2968ef8602fc20e0030bc32d8a40a39d8
     public function getUpdateCart(Cart $cart, $id) {
         $quantity = request()->quantity ? request()->quantity : 1; 
         $cart->update($id, $quantity);
@@ -246,13 +218,10 @@ class PageController extends Controller
         return redirect()->back()->with('thanhcong', 'Register success');
     }
 
-<<<<<<< HEAD
     public function getCheckout(){
         return view('main.checkout');
     }
 
-=======
->>>>>>> 31253ac2968ef8602fc20e0030bc32d8a40a39d8
     public function postCheckout(Request $req) {
         $ship_date = Carbon::now();
         $ship_date->day = Carbon::now()->day + 5;
@@ -262,26 +231,17 @@ class PageController extends Controller
         $order->shipped_date = $ship_date;
         $order->status = "Shipping";
         $order->save();
-<<<<<<< HEAD
         $t = $order->id;
-=======
->>>>>>> 31253ac2968ef8602fc20e0030bc32d8a40a39d8
         $cart = Session::get('cart');
         foreach($cart as $item) {
             $order_detail = new OrderDetail();
             $order_detail->order_id = $order->id;
             $order_detail->book_id = $item['id'];
             $order_detail->quantity_order = $item['quantity'];
-<<<<<<< HEAD
             $order_detail->save();
         }
         
          return view('main.checkout');
-=======
-        }
-        $order_detail->save();
-        return view('main.checkout');
->>>>>>> 31253ac2968ef8602fc20e0030bc32d8a40a39d8
     }
 
     public function getLogin()
