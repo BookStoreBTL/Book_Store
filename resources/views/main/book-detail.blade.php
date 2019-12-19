@@ -5,8 +5,8 @@
 
 	<div class="row">
 		<div class="col-lg-5 col-md-5">
-			<div class="img">				
-				<img src="../img/{{$book_detail->img}}" alt="" class="img">
+			<div class="img">
+				<img src="../img/{{$book_detail->img}}" alt="" class="book-img">
 			</div>
 		</div>
 
@@ -18,7 +18,7 @@
 				<p>Category: <span class="name"> {{$book_detail->category->name}}</span></p>
 				<div class="price">
 					@if($book_detail->sale_price == 0)
-					<span id="price-line-through">${{$book_detail->price}}</span>                              
+					<span id="price-line-through">${{$book_detail->price}}</span>
 					@else
 					<span id="price-line-through">${{$book_detail->price}}</span>
 					<span id="price-sale">${{$book_detail->sale_price}}</span>
@@ -67,6 +67,7 @@
 				<div class="tab-pane" id="reviews" role="tabpanel">
 					<div class="comment">
 						<ul class="cmt-list">
+							@foreach($review as $r)
 							<li class="cmt-list-item">
 								<div class="cmt-item">
 									<div class="cmt-item-img">
@@ -74,36 +75,18 @@
 									</div>
 									<div class="cmt-item-text">
 										<div class="cmt-username">
-											maidoan2017
+											{{$r->user->user_name}}
 										</div>
 										<div class="cmt-time">
-											August 6, 2019
+											{{$r->created_at}}
 										</div>
 										<div class="cmt-text">
-											very good. toi chua doc quyen sach nao hay den the
+											{{$r->title}}
 										</div>
 									</div>
 								</div>
 							</li>
-
-							<li class="cmt-list-item">
-								<div class="cmt-item">
-									<div class="cmt-item-img">
-										<img src="{{asset('img/cmt-user.png')}}">
-									</div>
-									<div class="cmt-item-text">
-										<div class="cmt-username">
-											nguyenthutrang
-										</div>
-										<div class="cmt-time">
-											August 6, 2019
-										</div>
-										<div class="cmt-text">
-											qua xuat sac. khong hoi han vi da mua quyen sach nay
-										</div>
-									</div>
-								</div>
-							</li>
+							@endforeach
 						</ul>
 					</div>
 					<div class="review">
@@ -113,10 +96,27 @@
 								You must be logged in to review
 							</div>
 						</div>
-						<div class="review-text">
-							<textarea rows="5" style="width: 100%" type="text" placeholder="Enter your review ..." disabled></textarea>
+
+						@if(count($errors) > 0)
+						<div class="alert alert-danger">
+							@foreach($errors->all() as $err)
+							{{$err}} <br>
+							@endforeach
 						</div>
-						<button type="submit" class="button">Submit</button>
+						@endif
+						
+						<form action="review/{{$book_detail->id}}" method="POST">
+							<input type="hidden" name="_token" value="{{csrf_token()}}">
+							<div class="review-text">
+								<textarea name="title" rows="5" style="width: 100%" type="text" autofocus
+								@if(!Auth::check()) {{"disabled"}} 
+								@endif
+								placeholder="Enter your review ..."
+								>
+								</textarea>
+							</div>
+							<button type="submit" class="button">Submit</button>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -147,7 +147,7 @@
 						</h6>
 						<h5 class="card-text price">
 							@if($item->sale_price == 0)
-							<span>${{$item->price}}</span>                              
+							<span>${{$item->price}}</span>
 							@else
 							<span class="old-price">${{$item->price}}</span>
 							<span>${{$item->sale_price}}</span>

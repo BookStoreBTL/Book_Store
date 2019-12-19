@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*
+* Route cho user
+*/
 Route::get('/home', [
     'as'=>'home',
     'uses'=>'PageController@getIndex'
@@ -21,25 +23,7 @@ Route::get('/home', [
 //     'uses'=>'PageController@getCart'
 // ]);
 
-Route::get('del-cart/{id}',[
-    'as'=>'deletecart',
-    'uses'=>'PageController@getDelCart'
-]);
 
-Route::get('add-cart/{id}', [
-    'as'=>'addcart',
-    'uses'=>'PageController@getAddCart'
-]);
-
-Route::get('cart',[
-    'as'=>'cart',
-    'uses'=>'PageController@getCart'
-]);
-
-Route::post('updatecart',[
-    'as'=>'updatecart',
-    'uses'=>'PageController@postUpdateCart'
-]);
 
 Route::get('/book',[
     'as'=>'book',
@@ -61,23 +45,10 @@ Route::get('register', [
     'uses'=>'PageController@getRegister'
 ]);
 
-Route::post('register',[
-    'as'=>'dangky',
-    'uses'=>'PageController@postRegister'
-]);
-
 Route::get('logout',[
     'as'=>'dangxuat',
     'uses'=>'PageController@getLogout'
 ]);
-
-Route::get('checkout', function () {
-    return view('main.checkout');
-})->name('checkout');
-Route::post('checkout', function () {
-    return view('main.checkout');
-})->name('checkout');
-
 
 Route::get('book-detail/{id?}', [
     'as'=>'book-detail',
@@ -89,10 +60,58 @@ Route::get('search-result', [
     'uses'=>'PageController@getSearch'
 ]);
 
-Route::get('contact', function(){
-    return view('main.contact');
-})->name('contact');
-Route::resource('payment', 'PaymentController');
+Route::get('test', 'PageController@test');
+
+
+Route::group(['middleware'=>'userLogin'], function(){
+    Route::get('cart',[
+        'as'=>'cart',
+        'uses'=>'PageController@getCart'
+    ]);
+
+    Route::get('del-cart/{id}',[
+        'as'=>'deletecart',
+        'uses'=>'PageController@getDelCart'
+    ]);
+    
+    Route::get('add-cart/{id}', [
+        'as'=>'addcart',
+        'uses'=>'PageController@getAddCart'
+    ]);
+
+    Route::post('updatecart',[
+        'as'=>'updatecart',
+        'uses'=>'PageController@postUpdateCart'
+    ]);
+
+    Route::get('checkout',[
+        'as'=>'checkout',
+        'uses'=>'PageController@getCheckout'
+    ]);
+
+    Route::post('checkout',[
+        'as'=>'checkout',
+        'uses'=>'PageController@getCheckout'
+    ]);
+
+    Route::get('contact', function(){
+        return view('main.contact');
+    })->name('contact');
+
+    Route::post('contact', 'PageController@postContact');
+
+    Route::post('book-detail/review/{id}', 'PageController@postReview');
+
+    // Route::post('createVNPay', 'PaymentController@createPayment');
+    Route::resource('payment', 'PaymentController');
+
+    Route::get('profile', 'PageController@getProfile');
+    Route::post('profile', 'PageController@postProfile');
+
+    Route::get('changepassword', 'PageController@getChangepassword');
+    Route::post('changepassword', 'PageController@postChangepassword');
+});
+
 /**
  * Route danh cho admin
  */

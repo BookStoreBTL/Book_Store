@@ -2,28 +2,8 @@
 @section('content')
 <div class="container default-margin  first-content">
     <div class="woocommerce">
-        <div class="checkout-form-option">
-            <div class="checkout-form-option--header">
-                <div class="woocommerce-info">
-                    Returning customer? <a href="#" class="showlogin">Click here to login</a>
-                </div>
-            </div>
-
-            <!--checkout-form-option content: khi click để login -->
-        </div>
-
-
-        <div class="checkout-form-option">
-            <div class="checkout-form-option--header">
-                <div class="woocommerce-info">
-                    Have a coupon?<a href="#" class="showcoupon">Click here to enter your code</a>
-                </div>
-            </div>
-            <div class="checkout-form-option--content"></div>
-        </div>
-
         <form name="checkout" method="POST" class="checkout woocommerce-checkout" action="{{url('payment')}}">
-        <input type="hidden" name="_token" value="{{csrf_token()}}">
+            <input type="hidden" name="_token" value="{{csrf_token()}}">
             <div class="col2-set" id="customer_details">
                 <div class="col1">
                     <div class="woocommerce-billing-fields">
@@ -31,20 +11,9 @@
                         <div class="woocommerce-billing-fields__field-wrapper">
                             <p class="form_row form-row-first validate-required" id="billing_first_name_field">
                                 <span class="woocommerce-input-wrapper">
-                                    <input type="text" class="input-text" name="billing_first_name" id="billing_first_name" placeholder="First name" value autocomplete="given-name">
+                                    <input type="text" class="input-text" name="billing_first_name" id="billing_first_name" placeholder="Name" value autocomplete="given-name">
                                 </span>
                             </p>
-                            <p class="form_row form-row-last validate-required" id="billing_last_name_field">
-                                <span class="woocommerce-input-wrapper">
-                                    <input type="text" class="input-text" name="billing_last_name" id="billing_first_name" placeholder="Lastname" value autocomplete="family-name">
-                                </span>
-                            </p>
-                            <p class="form_row form-row-wide" id="billing_company_field">
-                                <span class="woocommerce-input-wrapper">
-                                    <input type="text" class="input-text" name="billing_company" id="billing_first_name" placeholder="Company name" value autocomplete="organization">
-                                </span>
-                            </p>
-
                             <!--start input chọn đất nước-->
                             <p class="form_row form-row-wide address-field update_totals_on_change validate-required" id="billing_country_field">
 
@@ -324,27 +293,7 @@
                             <!--end input chọn đất nước-->
                             <p class="form_row form-row-wide address-field validate-required" id="billing_address_1_field">
                                 <span class="woocommerce-input-wrapper">
-                                    <input type="text" class="input-text" name="billing_address_1" id="billing_address_1" placeholder="House number and street name" value autocomplete="address-line1">
-                                </span>
-                            </p>
-                            <p class="form_row form-row-wide address-field" id="billing_address_2_field">
-                                <span class="woocommerce-input-wrapper">
-                                    <input type="text" class="input-text" name="billing_address_2" id="billing_address_2" placeholder="Apartment, suite, unit etc. (optional)" value autocomplete="address-line2">
-                                </span>
-                            </p>
-                            <p class="form_row form-row-wide address-field validate-required" id="billing_city_field">
-                                <span class="woocommerce-input-wrapper">
-                                    <input type="text" class="input-text" name="billing_city" id="billing_city" placeholder="Town / City" value autocomplete="address-level2">
-                                </span>
-                            </p>
-                            <p class="form_row form-row-wide address-field validate-required" id="billing_state_field">
-                                <span class="woocommerce-input-wrapper">
-                                    <input type="text" class="input-text" name="billing_state" id="billing_state" placeholder="State / Country">
-                                </span>
-                            </p>
-                            <p class="form_row form-row-wide address-field validate-postcode validate-required" id="billing_postcode_field">
-                                <span class="woocommerce-input-wrapper">
-                                    <input type="text" class="input-text" name="billing_postcode" id="billing_postcode" placeholder="Postcode / ZIP" value autocomplete="address-level2">
+                                    <textarea rows="3" type="text" class="input-text" name="billing_address_1" id="billing_address_1" placeholder="Address" value autocomplete="address-line1"></textarea>
                                 </span>
                             </p>
                             <p class="form_row form-row-wide validate-required validate-phone" id="billing_phone_field">
@@ -360,36 +309,16 @@
 
                         </div>
                     </div>
-                    <div class="woocommerce-account-fields">
-                        <p class="form_row form-row-wide create-account woocommerce-validated">
-                            <label class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
-                                <input class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" id="createaccount" type="checkbox" name="createaccount" value="1">
-                                <span>Create an account?</span>
-                            </label>
-                        </p>
-                    </div>
                 </div>
                 <div class="col2">
-                    <div class="woocommerce-shipping-fields">
-                        <h3 id="ship-to-different-address">
-                            <label class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
-                                <input id="ship-to-different-address-checkbox" class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" type="checkbox" name="ship_to_different_address" value="1">
-                                <span>Ship to a different address?</span>
-                            </label>
-                        </h3>
-                    </div>
                     <div class="woocommerce-additional-fields">
-                        <div class="woocommerce-additional-fields__field-wrapper">
-                            <p class="form_row notes" id="order_comments_field">
-                                <label for="order_comments">
-                                    Order notes&nbsp;
-                                    <span class="optional">(optional)</span>
-                                </label>
-                                <span class="woocommerce-input-wrapper">
-                                    <textarea name="order_comments" class="input-text" id="order_comments" placeholder="Notes about your order, e.g. special notes for delivery." rows="2" cols="5"></textarea>
-                                </span>
-                            </p>
-                        </div>
+                        <h3 for="order_comments" style="margin-bottom: 30px;">
+                            Order notes&nbsp;
+                            <span class="optional">(optional)</span>
+                        </h3>
+                        <span class="woocommerce-input-wrapper">
+                            <textarea rows="7" name="order_comments" class="input-text" id="order_comments" placeholder="Notes about your order, e.g. special notes for delivery." rows="2" cols="5"></textarea>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -461,32 +390,12 @@
                                     <p>Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account. SANDBOX ENABLED. You can use sandbox testing accounts only. See the <a href="https://developer.paypal.com/docs/classic/lifecycle/ug_sandbox/">PayPal Sandbox Testing Guide</a> for more details.</p>
                                 </div>
                             </li>
-                            <!-- <li class="wc_payment_method payment_method_bacs">
-                                        <input id="payment_method_bacs" type="radio" class="input-radio" name="payment_method" value="bacs">
-                                        <label for="payment_method_bacs">Direct bank transfer</label>
-                                    </li>
-                                    <li class="wc_payment_method payment_method_cheque">
-                                        <input id="payment_method_cheque" type="radio" class="input-radio" name="payment_method" value="cheque">
-                                        <label for="payment_method_bacs">Check payments</label>
-                                    </li>
-                                    <li class="wc_payment_method payment_method_cod">
-                                        <input id="payment_method_cod" type="radio" class="input-radio" name="payment_method" value="cod">
-                                        <label for="payment_method_bacs">Cash on delivery</label>
-                                    </li> -->
+                            <li class="wc_payment_method payment_method_cod">
+                                <input id="payment_method_cod" type="radio" class="input-radio" name="payment_method" value="cod">
+                                <label for="payment_method_bacs">Cash on delivery</label>
+                            </li>
                         </ul>
                         <div class="form_row place-order">
-                            <div class="woocommerce-terms-and-conditions-wrapper">
-                                <p class="form_row validate-required">
-                                    <label class="woocommerce-form__label woocommerce-form__label-for-checkbox checkbox">
-                                        <input type="checkbox" class="woocommerce-form__input woocommerce-form__input-checkbox input-checkbox" name="terms" id="terms">
-                                        <span class="woocommerce-terms-and-conditions-checkbox-text">
-                                            I have read and agree to the website
-                                            <a href="https://demo.kaliumtheme.com/bookstore/terms-and-conditions/" class="woocommerce-terms-and-conditions-link" target="_blank">terms and conditions</a>
-                                        </span>
-
-                                    </label>
-                                </p>
-                            </div>
                             <button type="submit" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="Place order">Proceed to PayPal</button>
                         </div>
                     </div>

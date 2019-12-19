@@ -2,8 +2,8 @@
     margin-bottom: 20px;
 }
 
-.singel-product-details .img{
-    width: 100%;
+.singel-product-details .book-img{
+    width: 90%;
 }
 .singel-product-details .text{
     width: 100%;
@@ -163,4 +163,7 @@ ul.cmt-list {
 .singel-product-details a:hover{
     text-decoration: none;
     color: #76323f;
+}
+.singel-product-details .card-img-top{
+    height: 80%;
 }

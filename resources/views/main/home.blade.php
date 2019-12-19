@@ -1,4 +1,5 @@
 @extends('main.layout.index')
+
 @section('content')
 <div class="container-fluid">
     <div class="row">

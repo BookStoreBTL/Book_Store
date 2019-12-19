@@ -110,7 +110,7 @@
     color: #76323f;
 }
 .header li>a{
-    font-size: 20px;
+    font-size: 17px;
     font-family: 'Prata';
     font-weight: 400;
     text-decoration: none;
@@ -176,7 +176,9 @@
     outline: 0;
 }
 
-
+.dropdown-menu.show {
+    padding: 7px 0px;
+}
 
 
 

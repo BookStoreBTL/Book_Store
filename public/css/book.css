@@ -75,7 +75,9 @@
 .book-section .btn-link:hover{
     color: #76323f;
     text-decoration: none;
+    background-color:transparent!important;
 }
+
 .book-section .collapse{
     text-decoration: none;
 }
@@ -110,4 +112,9 @@
 
 .dropdown-toggle:hover{
     background-color: #f3f0ef;
+}
+
+.page-item.active .page-link {
+    background-color: #76323f;
+    border-color: #76323f;
 }

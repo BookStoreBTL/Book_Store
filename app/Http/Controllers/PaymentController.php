@@ -59,7 +59,7 @@ class PaymentController extends Controller
         try{
             $result = $payment->execute($execution, $this->apiContext);
             if($result->getState() == 'approved'){
-                return "Success";
+                return redirect('book')->with('message', 'You have successfully placed an order. Your order will be delivered in up to 3 days.');
             }
         } catch(Exception $e){
             echo "Failed";

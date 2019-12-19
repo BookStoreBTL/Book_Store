@@ -1,10 +1,18 @@
 @extends('main.layout.index')
+
 @section('content')
 <div class="container book-section first-content">
     <div class="row book-title">
         <div class="col-auto mr-auto">
             <h1>All Books</h1>
         </div>
+
+        @if(session('message'))
+        <div class="alert alert-success">
+            {{session('message')}}
+        </div>
+        @endif
+
         <div class="col-auto">
             <div class="dropdown sort">
                 <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -180,7 +188,7 @@
                 </div>
             </div>
             <div class="col-sm-6 col-md-8 col-lg-9">
-            <div class="card-group">
+                <div class="card-group">
                     @foreach($books as $item)
                     <div class="col-sm-12 col-md-4 col-lg-3">
                         <div class="card">
@@ -201,7 +209,7 @@
                                 </h6>
                                 <h5 class="card-text price">
                                     @if($item->sale_price == 0)
-                                    <span>${{$item->price}}</span>                              
+                                    <span>${{$item->price}}</span>
                                     @else
                                     <span class="old-price">${{$item->price}}</span>
                                     <span>${{$item->sale_price}}</span>
@@ -211,25 +219,10 @@
                         </div>
                     </div>
                     @endforeach
-                    <div class="row">{{$books->links()}}</div>
                 </div>
-                
+
                 <nav aria-label="Page navigation">
-                    <ul class="pagination">
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
-                    </ul>
+                {{$books->links()}}
                 </nav>
             </div>
         </div>
