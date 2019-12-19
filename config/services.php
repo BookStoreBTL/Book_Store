@@ -30,4 +30,16 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'facebook' => [
+        'client_id' => '738970203247425',
+        'client_secret' => 'd0d52011fb8bfa602171c3e0aeda0ed7',
+        'redirect' => 'http://localhost:8080/BookStore/public/facebook/callback'
+    ],
+
+    'google' => [
+        'client_id' => '674686055526-s6tdg180dmtfc3bui4bholr1edav9ea5.apps.googleusercontent.com',
+        'client_secret' => '_nBT-xBMV6ls9obvRlzslvlr',
+        'redirect' => 'http://localhost:8080/BookStore/public/google/callback'
+    ]
+
 ];

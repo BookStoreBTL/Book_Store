@@ -97,7 +97,7 @@ CREATE TABLE `contact` (
   PRIMARY KEY (`id`),
   KEY `fk_contact_user` (`user_id`),
   CONSTRAINT `fk_contact_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=201 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=203 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -135,7 +135,7 @@ CREATE TABLE `order_detail` (
   KEY `fk_od_book` (`book_id`),
   CONSTRAINT `fk_od_book` FOREIGN KEY (`book_id`) REFERENCES `book` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_od_order` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2001 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2015 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -156,7 +156,7 @@ CREATE TABLE `orders` (
   PRIMARY KEY (`id`),
   KEY `fk_order_user` (`user_id`),
   CONSTRAINT `fk_order_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=1001 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1009 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -214,7 +214,7 @@ CREATE TABLE `review` (
   KEY `fk_review_book` (`book_id`),
   CONSTRAINT `fk_review_book` FOREIGN KEY (`book_id`) REFERENCES `book` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_review_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=301 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=306 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -227,15 +227,15 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
   `user_name` varchar(30) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `phone_number` varchar(30) NOT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `phone_number` varchar(30) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
-  `address` varchar(255) NOT NULL,
+  `address` varchar(255) DEFAULT NULL,
   `level` tinyint(10) NOT NULL DEFAULT 0,
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=104 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=113 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -247,4 +247,4 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-12-17 23:37:29
+-- Dump completed on 2019-12-20  0:50:48

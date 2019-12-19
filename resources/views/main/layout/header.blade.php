@@ -20,13 +20,15 @@
                         <li class="menu-item text-menu">
                             <a href="{{route('contact')}}"><span>Contact</span></a>
                         </li>
+                        
+                        @if(Auth::user())
                         <li class="menu-item">
                             <a href="{{route('cart')}}">
                                 <i class="fa fa-shopping-bag"></i>
                             </a>
-                            <span class="number-shopping"> @if(Session::has('cart')){{Session::get('cart')->totalQty}} @else {{0}}@endif</span>
+                            <span class="number-shopping">{{$cart->totalQty}}</span>
                         </li>
-                        @if(Auth::user())
+                        
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                                 <i class="fa fa-user"></i>

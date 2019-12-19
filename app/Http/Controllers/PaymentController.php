@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Cart;
 use Exception;
+use Illuminate\Contracts\Session\Session as SessionSession;
 use Session;
 use Illuminate\Http\Request;
 use PayPal\Auth\OAuthTokenCredential;
@@ -16,6 +18,7 @@ use PayPal\Api\Payment;
 use PayPal\Api\RedirectUrls;
 use PayPal\Api\Transaction;
 use PayPal\Api\PaymentExecution;
+use PayPal\Api\ResultPrinter;
 
 class PaymentController extends Controller
 {
@@ -50,21 +53,24 @@ class PaymentController extends Controller
     {
         $payment_id = $request->session()->get('payment_id');
         $request->session()->forget('payment_id');
-        
+
         $execution = new PaymentExecution();
         $execution->setPayerId($request->input('PayerID'));
 
         $payment = Payment::get($payment_id, $this->apiContext);
 
-        try{
+        try {
             $result = $payment->execute($execution, $this->apiContext);
-            if($result->getState() == 'approved'){
+            if ($result->getState() == 'approved') {
+                // $request->session()->forget('payment_id');
+                // $request->session()->reflash();
+                // $request->session()->keep(['user_name', 'email']);
+                 $request->session()->flush();
                 return redirect('book')->with('message', 'You have successfully placed an order. Your order will be delivered in up to 3 days.');
             }
-        } catch(Exception $e){
+        } catch (Exception $e) {
             echo "Failed";
         }
-
     }
 
     /**
@@ -73,37 +79,35 @@ class PaymentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Cart $cart)
     {
         $payer = new Payer();
         $payer->setPaymentMethod("paypal");
 
-        // information payment
-        $item1 = new Item();
-        $item1->setName('Ground Coffee 40 oz')
-            ->setCurrency('USD')
-            ->setQuantity(1)
-            ->setSku("123123") // Similar to `item_number` in Classic API
-            ->setPrice(7.5);
-        $item2 = new Item();
-        $item2->setName('Granola bars')
-            ->setCurrency('USD')
-            ->setQuantity(5)
-            ->setSku("321321") // Similar to `item_number` in Classic API
-            ->setPrice(2);
+        $items = array();
+        foreach ($cart->items as $item) {
+            $item1 = new Item();
+            $item1->setName($item['name'])
+                ->setCurrency('USD')
+                ->setQuantity((int)$item['quantity'])
+                ->setSku((string)mt_rand(100000, 999999)) // Similar to `item_number` in Classic API
+                ->setPrice($item['price']);
+
+            $items[] = $item1;
+        }
 
         $itemList = new ItemList();
-        $itemList->setItems(array($item1, $item2));
-
+        $itemList->setItems($items);
+        
         $details = new Details();
         $details->setShipping(1.2)
             ->setTax(1.3)
-            ->setSubtotal(17.50);
+            ->setSubtotal($cart->totalPrice);
 
         $amount = new Amount();
         $amount->setCurrency("USD")
-            ->setTotal(20)
-            ->setDetails($details);
+            ->setTotal($cart->totalPrice + 2.5)
+             ->setDetails($details);
 
         // ### Transaction
         $transaction = new Transaction();
@@ -131,7 +135,7 @@ class PaymentController extends Controller
             echo "Failed";
             exit(1);
         }
- 
+
         $approvalUrl = $payment->getApprovalLink();
 
         $request->session()->put('payment_id', $payment->id);

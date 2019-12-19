@@ -8,10 +8,13 @@ use App\Cart;
 use App\Author;
 use App\Language;
 use App\Category;
-use App\Contact;
+use App\Order;
+use App\OrderDetail;
 use App\Review;
+use App\Contact;
 use Session;
 use Hash;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Input;
 
@@ -149,14 +152,11 @@ class PageController extends Controller
 
     }
 
-    public function getAddCart(Request $req, $id)
+    public function getAddCart(Cart $cart, $id)
     {
         $book = Book::find($id);
-        $oldCart = Session('cart') ? Session::get('cart') : null;
-        $cart = new Cart($oldCart);
-        $cart->add($book, $id);
-        $req->session()->put('cart', $cart);
-        return redirect()->back()->with('success', 'thanh cong');
+        $cart->add($book);
+        return redirect()->back()->with('success','thanh cong');
     }
 
     public function getCart()
@@ -164,32 +164,23 @@ class PageController extends Controller
         return view('main.cart');
     }
 
-    public function postCheckout()
-    {
-    }
-
-
-    public function getDelCart($id)
-    {
-        $oldCart = Session::has('cart') ? Session::get('cart') : null;
-        $cart = new Cart($oldCart);
-        $cart->delete($id);
-        if (count($cart->items) > 0) {
-            Session::put('cart', $cart);
-        } else {
-            Session::forget('cart');
-        }
-
+    public function getRemoveCart(Cart $cart, $id) {
+        $cart->remove($id);
         return redirect()->back();
     }
 
-    public function getCheckout()
-    {
-        return view('main.checkout');
+    public function getUpdateCart(Cart $cart, $id) {
+        $quantity = request()->quantity ? request()->quantity : 1; 
+        $cart->update($id, $quantity);
+        return redirect()->back();
     }
-
-
-
+    public function getClearCart(Cart $cart) {
+        $cart->clear();
+        return redirect()->back();
+    }
+    public function getViewCart() {
+        return view('main.cart');
+    }
 
     public function getRegister()
     {
@@ -227,6 +218,32 @@ class PageController extends Controller
         return redirect()->back()->with('thanhcong', 'Register success');
     }
 
+    public function getCheckout(){
+        return view('main.checkout');
+    }
+
+    public function postCheckout(Request $req) {
+        $ship_date = Carbon::now();
+        $ship_date->day = Carbon::now()->day + 5;
+        $order = new Order();
+        $order->user_id = Auth::user()->id;
+        $order->order_date = Carbon::now();
+        $order->shipped_date = $ship_date;
+        $order->status = "Shipping";
+        $order->save();
+        $t = $order->id;
+        $cart = Session::get('cart');
+        foreach($cart as $item) {
+            $order_detail = new OrderDetail();
+            $order_detail->order_id = $order->id;
+            $order_detail->book_id = $item['id'];
+            $order_detail->quantity_order = $item['quantity'];
+            $order_detail->save();
+        }
+        
+         return view('main.checkout');
+    }
+
     public function getLogin()
     {
         return view('main.login');
@@ -259,6 +276,7 @@ class PageController extends Controller
     public function getLogout()
     {
         Auth::logout();
+        Session::flush();
         return redirect()->route('home');
     }
 
@@ -267,4 +285,5 @@ class PageController extends Controller
         $product = Book::where('name', 'like', '%' . $req->search . '%')->orWhere('price', $req->search)->paginate(4);
         return view('main.search-result', compact('product'));
     }
+
 }

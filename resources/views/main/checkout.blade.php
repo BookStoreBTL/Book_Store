@@ -11,7 +11,7 @@
                         <div class="woocommerce-billing-fields__field-wrapper">
                             <p class="form_row form-row-first validate-required" id="billing_first_name_field">
                                 <span class="woocommerce-input-wrapper">
-                                    <input type="text" class="input-text" name="billing_first_name" id="billing_first_name" placeholder="Name" value autocomplete="given-name">
+                                    <input type="text" class="input-text" name="billing_first_name" id="billing_first_name" placeholder="Name" value = "{{Auth::user()->user_name}}" autocomplete="given-name">
                                 </span>
                             </p>
                             <!--start input chọn đất nước-->
@@ -293,17 +293,17 @@
                             <!--end input chọn đất nước-->
                             <p class="form_row form-row-wide address-field validate-required" id="billing_address_1_field">
                                 <span class="woocommerce-input-wrapper">
-                                    <textarea rows="3" type="text" class="input-text" name="billing_address_1" id="billing_address_1" placeholder="Address" value autocomplete="address-line1"></textarea>
+                                    <textarea rows="3" type="text" class="input-text" name="billing_address_1" id="billing_address_1" placeholder="Address" autocomplete="address-line1">{{Auth::user()->address}}</textarea>
                                 </span>
                             </p>
                             <p class="form_row form-row-wide validate-required validate-phone" id="billing_phone_field">
                                 <span class="woocommerce-input-wrapper">
-                                    <input type="text" class="input-text" name="billing_phone" id="billing_phone" placeholder="Phone" value autocomplete="tel">
+                                    <input type="text" class="input-text" name="billing_phone" id="billing_phone" placeholder="Phone" value = "{{Auth::user()->phone_number}}" autocomplete="tel">
                                 </span>
                             </p>
                             <p class="form_row form-row-wide validate-required validate-email" id="billing_email_field">
                                 <span class="woocommerce-input-wrapper">
-                                    <input type="text" class="input-text" name="billing_email" id="billing_email" placeholder="Email address" value autocomplete="email username">
+                                    <input type="text" class="input-text" name="billing_email" id="billing_email" placeholder="Email address" value = "{{Auth::user()->email}}" autocomplete="email username">
                                 </span>
                             </p>
 
@@ -334,24 +334,26 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($cart->items as $item)
                             <tr class="cart_item">
                                 <td class="product-name">
-                                    12 Rules for Life: An Antidote to Chaos
-                                    <strong class="product-quantity">× 1</strong>
+                                    {{$item['name']}}
+                                    <strong class="product-quantity">× {{$item['quantity']}}</strong>
                                 </td>
                                 <td class="product-total">
                                     <span class="woocommerce-Price-amount amount">
-                                        <span class="woocommerce-Price-currencySymbol">$</span>9.95
+                                        <span class="woocommerce-Price-currencySymbol">$</span>{{$item['price']*$item['quantity']}}
                                     </span>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                         <tfoot>
                             <tr class="cart-subtotal">
                                 <th>Subtotal</th>
                                 <td>
                                     <span class="woocommerce-Price-amount amount">
-                                        <span class="woocommerce-Price-currencySymbol">$</span>9.95
+                                        <span class="woocommerce-Price-currencySymbol">$</span>{{$cart->totalPrice}}
                                     </span>
                                 </td>
                             </tr>
@@ -370,7 +372,7 @@
                                 <td>
                                     <strong>
                                         <span class="woocommerce-Price-amount amount">
-                                            <span class="woocommerce-Price-currencySymbol">$</span>9.95
+                                            <span class="woocommerce-Price-currencySymbol">$</span>{{$cart->totalPrice}}
                                         </span>
                                     </strong>
                                 </td>

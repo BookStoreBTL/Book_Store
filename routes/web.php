@@ -18,13 +18,6 @@ Route::get('/home', [
     'uses'=>'PageController@getIndex'
 ]);  
 
-// Route::get('addcart',[
-//     'as'=>'addcart',
-//     'uses'=>'PageController@getCart'
-// ]);
-
-
-
 Route::get('/book',[
     'as'=>'book',
     'uses'=>'PageController@getBooks'
@@ -45,6 +38,11 @@ Route::get('register', [
     'uses'=>'PageController@getRegister'
 ]);
 
+Route::post('register',[
+    'as'=>'dangky',
+    'uses'=>'PageController@postRegister'
+]);
+
 Route::get('logout',[
     'as'=>'dangxuat',
     'uses'=>'PageController@getLogout'
@@ -62,26 +60,48 @@ Route::get('search-result', [
 
 Route::get('test', 'PageController@test');
 
+Route::get('facebook/redirect', 'SocialController@redirectToProvider');
+Route::get('facebook/callback', 'SocialController@handleProviderCallback');
+
+Route::get('google/redirect', 'SocialController@redirectToProviderGoogle');
+Route::get('google/callback', 'SocialController@handleProviderCallbackGoogle');
 
 Route::group(['middleware'=>'userLogin'], function(){
     Route::get('cart',[
         'as'=>'cart',
-        'uses'=>'PageController@getCart'
+        'uses'=>'PageController@getViewCart'
     ]);
 
-    Route::get('del-cart/{id}',[
-        'as'=>'deletecart',
-        'uses'=>'PageController@getDelCart'
-    ]);
+    // Route::get('del-cart/{id}',[
+    //     'as'=>'deletecart',
+    //     'uses'=>'PageController@getDelCart'
+    // ]);
     
-    Route::get('add-cart/{id}', [
+    // Route::get('add-cart/{id}', [
+    //     'as'=>'addcart',
+    //     'uses'=>'PageController@getAddCart'
+    // ]);
+
+    // Route::post('updatecart',[
+    //     'as'=>'updatecart',
+    //     'uses'=>'PageController@postUpdateCart'
+    // ]);
+
+    Route::get('add/{id}',[
         'as'=>'addcart',
         'uses'=>'PageController@getAddCart'
     ]);
-
-    Route::post('updatecart',[
+    Route::get('remove/{id}',[
+        'as'=>'removecart',
+        'uses'=>'PageController@getRemoveCart'
+    ]);
+    Route::get('update/{id}',[
         'as'=>'updatecart',
-        'uses'=>'PageController@postUpdateCart'
+        'uses'=>'PageController@getUpdateCart'
+    ]);
+    Route::get('clear',[
+        'as'=>'clearcart',
+        'uses'=>'PageController@getClearCart'
     ]);
 
     Route::get('checkout',[
@@ -92,6 +112,11 @@ Route::group(['middleware'=>'userLogin'], function(){
     Route::post('checkout',[
         'as'=>'checkout',
         'uses'=>'PageController@getCheckout'
+    ]);
+
+    Route::post('checkout',[
+        'as'=>'checkout',
+        'uses'=>'PageController@postCheckout'
     ]);
 
     Route::get('contact', function(){
