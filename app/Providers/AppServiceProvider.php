@@ -4,6 +4,7 @@ namespace App\Providers;
 use App\Cart;
 
 use Illuminate\Support\ServiceProvider;
+use URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -31,6 +32,7 @@ class AppServiceProvider extends ServiceProvider
         //         $view->with(['cart'=>Session::get('cart')]);
         //     }
         // });
+        URL::forceScheme('https');
         view()->composer('*',function($view) {
             $view->with([
                 'cart' => new Cart()               
