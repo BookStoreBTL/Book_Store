@@ -135,7 +135,11 @@ CREATE TABLE `order_detail` (
   KEY `fk_od_book` (`book_id`),
   CONSTRAINT `fk_od_book` FOREIGN KEY (`book_id`) REFERENCES `book` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_od_order` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+<<<<<<< HEAD
 ) ENGINE=InnoDB AUTO_INCREMENT=2015 DEFAULT CHARSET=utf8;
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=2003 DEFAULT CHARSET=utf8;
+>>>>>>> 31253ac2968ef8602fc20e0030bc32d8a40a39d8
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -156,7 +160,11 @@ CREATE TABLE `orders` (
   PRIMARY KEY (`id`),
   KEY `fk_order_user` (`user_id`),
   CONSTRAINT `fk_order_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+<<<<<<< HEAD
 ) ENGINE=InnoDB AUTO_INCREMENT=1009 DEFAULT CHARSET=utf8;
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=1003 DEFAULT CHARSET=utf8;
+>>>>>>> 31253ac2968ef8602fc20e0030bc32d8a40a39d8
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -247,4 +255,8 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+<<<<<<< HEAD
 -- Dump completed on 2019-12-20  0:50:48
+=======
+-- Dump completed on 2019-12-19 20:22:14
+>>>>>>> 31253ac2968ef8602fc20e0030bc32d8a40a39d8

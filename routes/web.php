@@ -111,7 +111,7 @@ Route::group(['middleware'=>'userLogin'], function(){
 
     Route::post('checkout',[
         'as'=>'checkout',
-        'uses'=>'PageController@getCheckout'
+        'uses'=>'PageController@postCheckout'
     ]);
 
     Route::post('checkout',[
