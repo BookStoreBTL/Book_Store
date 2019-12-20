@@ -147,10 +147,10 @@
 						</h6>
 						<h5 class="card-text price">
 							@if($item->sale_price == 0)
-							<span>${{$item->price}}</span>
+							<span id="price-line-through">${{$item->price}}</span>
 							@else
-							<span class="old-price">${{$item->price}}</span>
-							<span>${{$item->sale_price}}</span>
+							<span id="price-line-through">${{$item->price}}</span>
+							<span id="price-sale">${{$item->sale_price}}</span>
 							@endif
 						</h5>
 					</div>
