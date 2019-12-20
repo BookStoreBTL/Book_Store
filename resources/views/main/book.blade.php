@@ -13,7 +13,7 @@
         </div>
         @endif
 
-        <div class="col-auto">
+        <!-- <div class="col-auto">
             <div class="dropdown sort">
                 <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Default sorting
@@ -25,7 +25,7 @@
                     <a class="dropdown-item" href="#">Default sorting</a>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 
     <div class="book-item" style="margin-top: 20px;">
@@ -54,31 +54,13 @@
                         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="card-body">
                                 <ul>
+                                    @foreach($authors as $a)
                                     <li>
-                                        <a href="">
-                                            Camille Pagán
+                                        <a href="{{ route('author', $a->id) }}">
+                                            {{$a->name}}
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="">
-                                            Dr. Seuss
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            Marlon James
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            Ned Vizzini
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            R. J. Palacio
-                                        </a>
-                                    </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -95,46 +77,13 @@
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                             <div class="card-body">
                                 <ul>
+                                    @foreach($category as $c)
                                     <li>
-                                        <a href="">
-                                            Biography
+                                        <a href="{{ route('category', $c->id) }}">
+                                            {{$c->name}}
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="">
-                                            Children's
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            Cooking
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            Drama
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            Family
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            Fiction
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            History
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            Mystery
-                                        </a>
-                                    </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -151,36 +100,36 @@
                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                             <div class="card-body">
                                 <ul>
+                                    @foreach($language as $l)
                                     <li>
-                                        <a href="">
-                                            English
+                                        <a href="{{ route('language', $l->id) }}">
+                                            {{$l->name}}
                                         </a>
                                     </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingFour">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    Publisher
+                                    <i class="fa fa-chevron-down"></i>
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                            <div class="card-body">
+                                <ul>
+                                    @foreach($publisher as $p)
                                     <li>
-                                        <a href="">
-                                            French
+                                        <a href="{{ route('publisher', $p->id) }}">
+                                            {{$p->name}}
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="">
-                                            German
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            Japanese
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            Spanish
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            Vietnamese
-                                        </a>
-                                    </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -222,7 +171,7 @@
                 </div>
 
                 <nav aria-label="Page navigation">
-                {{$books->links()}}
+                    {{$books->links()}}
                 </nav>
             </div>
         </div>

@@ -13,6 +13,7 @@ use App\OrderDetail;
 use App\Review;
 use App\Contact;
 use App\Payment;
+use App\Publisher;
 use Session;
 use Hash;
 use Carbon\Carbon;
@@ -36,7 +37,45 @@ class PageController extends Controller
         $authors = Author::all();
         $language = Language::all();
         $category = Category::all();
-        return view('main.book', compact('books', 'authors', 'language', 'category'));
+        $publisher = Publisher::all();
+        return view('main.book', compact('books', 'authors', 'language', 'category', 'publisher'));
+    }
+
+    public function getBookByCategory($id){
+        $books = Book::where('category_id', $id)->paginate(8);
+        $authors = Author::all();
+        $language = Language::all();
+        $category = Category::all();
+        $publisher = Publisher::all();
+        $category_name = Category::find($id)->name;
+        return view('main.book', compact('books', 'authors', 'language', 'category', 'publisher'));
+    }
+
+    public function getBookByAuthor($id){
+        $books = Book::where('author_id', $id)->paginate(8);
+        $authors = Author::all();
+        $language = Language::all();
+        $category = Category::all();
+        $publisher = Publisher::all();
+        return view('main.book', ['books'=> $books, 'authors'=>$authors, 'language'=>$language, 'category'=>$category, 'publisher'=>$publisher]);
+    }
+
+    public function getBookBylanguage($id){
+        $books = Book::where('language_id', $id)->paginate(8);
+        $authors = Author::all();
+        $language = Language::all();
+        $category = Category::all();
+        $publisher = Publisher::all();
+        return view('main.book', ['books'=> $books, 'authors'=>$authors, 'language'=>$language, 'category'=>$category, 'publisher'=>$publisher]);
+    }
+
+    public function getBookByPublisher($id){
+        $books = Book::where('publisher_id', $id)->paginate(8);
+        $authors = Author::all();
+        $language = Language::all();
+        $category = Category::all();
+        $publisher = Publisher::all();
+        return view('main.book', ['books'=> $books, 'authors'=>$authors, 'language'=>$language, 'category'=>$category, 'publisher'=>$publisher]);
     }
 
     public function getBookDetails(Request $req)

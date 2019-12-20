@@ -58,7 +58,26 @@ Route::get('search-result', [
     'uses'=>'PageController@getSearch'
 ]);
 
-Route::get('test', 'PageController@test');
+Route::get('category/{id}', 
+[
+    'as' => 'category',
+    'uses'=> 'PageController@getBookByCategory'
+]);
+Route::get('author/{id}', 
+[
+    'as' => 'author',
+    'uses'=> 'PageController@getBookByAuthor'
+]);
+Route::get('language/{id}', 
+[
+    'as' => 'language',
+    'uses'=> 'PageController@getBookByLanguage'
+]);
+Route::get('publisher/{id}', 
+[
+    'as' => 'publisher',
+    'uses'=> 'PageController@getBookByPublisher'
+]);
 
 Route::get('facebook/redirect', 'SocialController@redirectToProvider');
 Route::get('facebook/callback', 'SocialController@handleProviderCallback');
@@ -71,21 +90,6 @@ Route::group(['middleware'=>'userLogin'], function(){
         'as'=>'cart',
         'uses'=>'PageController@getViewCart'
     ]);
-
-    // Route::get('del-cart/{id}',[
-    //     'as'=>'deletecart',
-    //     'uses'=>'PageController@getDelCart'
-    // ]);
-    
-    // Route::get('add-cart/{id}', [
-    //     'as'=>'addcart',
-    //     'uses'=>'PageController@getAddCart'
-    // ]);
-
-    // Route::post('updatecart',[
-    //     'as'=>'updatecart',
-    //     'uses'=>'PageController@postUpdateCart'
-    // ]);
 
     Route::get('add/{id}',[
         'as'=>'addcart',
