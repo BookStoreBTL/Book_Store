@@ -18,14 +18,14 @@
 				<p>Category: <span class="name"> {{$book_detail->category->name}}</span></p>
 				<div class="price">
 					@if($book_detail->sale_price == 0)
-					<span id="price-line-through">${{$book_detail->price}}</span>
+					<span id="price-sale">${{$book_detail->price}}</span>
 					@else
 					<span id="price-line-through">${{$book_detail->price}}</span>
 					<span id="price-sale">${{$book_detail->sale_price}}</span>
 					@endif
 				</div>
 				<div style="display: flex">
-					<input class="quantity" type="number" step="1" min="0" value="1" size="4" inputmode="numeric">
+					<!-- <input class="quantity" type="number" step="1" min="0" value="1" size="4" inputmode="numeric"> -->
 					<a href="{{route('addcart',$book_detail->id)}}"><button class="button">Add to cart</button></a>
 				</div>
 			</div>
