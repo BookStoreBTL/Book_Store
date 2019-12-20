@@ -401,7 +401,7 @@
                             </li>
                         </ul>
                         <div class="form_row place-order">
-                            <button type="submit" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="Place order">Proceed to PayPal</button>
+                            <button type="submit" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="Place order">Proceed</button>
                         </div>
                     </div>
                 </div>
