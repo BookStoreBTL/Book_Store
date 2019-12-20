@@ -44,22 +44,6 @@
                     <label for="confirmPassword">Confirm Password *</label>
                     <input type="password" id="password" name="repassword" class="form-control">
                 </div>
-                <div class="form-group form-check">
-                    <input type="checkbox" id="newsletter" name="newsletter" class="form-check-input">
-                    <label for="newsletter" class="form-check-label">Sign up to receive emails</label>
-                </div>
-                <div class="form-group form-check">
-                    <input type="checkbox" id="privacyPolice" name="privacyPolice" class="form-check-input">
-                    <label for="privacyPolice" class="form-check-label">
-                        Accept <a href="#">Privacy Policy</a>
-                    </label>
-                </div>
-                <div class="form-group form-check">
-                    <input type="checkbox" id="termAndConditions" name="termAndConditions" class="form-check-input">
-                    <label for="termAndConditions" class="form-check-label">
-                        Accept <a href="#">Terms & Conditions</a>
-                    </label>
-                </div>
                 <div class="row">
                     <div class="col-sm-6 form-group">
                         <button type="submit" class="btn btn-primary btn-block">Register</button>
