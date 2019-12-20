@@ -95,7 +95,7 @@
         <div class="row">
             <div class="col-md-5">
                 <div class="author-image">
-                    <img src="{{asset('img/author-month.png')}}" alt="">
+                    <img src="{{asset('img/author/Danielle Steel.jpg')}}" alt="">
                 </div>
             </div>
             <div class="col-md-6" style="padding-top: 20px;">

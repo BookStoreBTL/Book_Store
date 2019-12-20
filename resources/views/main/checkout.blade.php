@@ -395,6 +395,9 @@
                             <li class="wc_payment_method payment_method_cod">
                                 <input id="payment_method_cod" type="radio" class="input-radio" name="payment_method" value="cod">
                                 <label for="payment_method_bacs">Cash on delivery</label>
+                                <!-- <a href="{{route('home')}}">
+                                <label for="payment_method_bacs">Cash on delivery</label>
+                                </a> -->
                             </li>
                         </ul>
                         <div class="form_row place-order">

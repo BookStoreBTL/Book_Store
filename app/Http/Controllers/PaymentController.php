@@ -62,9 +62,6 @@ class PaymentController extends Controller
         try {
             $result = $payment->execute($execution, $this->apiContext);
             if ($result->getState() == 'approved') {
-                // $request->session()->forget('payment_id');
-                // $request->session()->reflash();
-                // $request->session()->keep(['user_name', 'email']);
                  $request->session()->flush();
                 return redirect('book')->with('message', 'You have successfully placed an order. Your order will be delivered in up to 3 days.');
             }

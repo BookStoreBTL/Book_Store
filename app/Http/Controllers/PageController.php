@@ -12,6 +12,7 @@ use App\Order;
 use App\OrderDetail;
 use App\Review;
 use App\Contact;
+use App\Payment;
 use Session;
 use Hash;
 use Carbon\Carbon;
@@ -222,7 +223,7 @@ class PageController extends Controller
         return view('main.checkout');
     }
 
-    public function postCheckout(Request $req) {
+    public function postCheckout(Request $req, Cart $cart2) {
         $ship_date = Carbon::now();
         $ship_date->day = Carbon::now()->day + 5;
         $order = new Order();
@@ -240,6 +241,12 @@ class PageController extends Controller
             $order_detail->quantity_order = $item['quantity'];
             $order_detail->save();
         }
+
+        $payment = new Payment();
+        $payment->order_id = $order->id;
+        $payment->amount = $cart2->totalPrice;
+        $payment->payment_date = Carbon::now();
+        $payment->save();
         
          return view('main.checkout');
     }

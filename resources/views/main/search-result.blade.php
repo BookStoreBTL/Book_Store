@@ -8,7 +8,7 @@
 
     </div>
     @foreach($product as $item)
-    <div class="page">
+    <div class="page" style="margin-bottom: 30px">
         <div class="ha"><img src="img/{{$item->img}}" alt="" id="img"></div>
         <div class="text">
             <h3>{{$item->name}}</h3>
@@ -16,7 +16,8 @@
             <a href="{{route('addcart',$item->id)}}"><button class="button">Add to cart</button> &emsp; <span>continue</span></a>
         </div>
     </div>
+    <div class="clearfix"></div>
     @endforeach
-    <div></div>
 </div>
+<div class="clearfix" style="margin-bottom: 30px"></div>
 @endsection
